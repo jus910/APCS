@@ -1,0 +1,14 @@
+0. The base x number system is one in which all numbers are written in terms of their distance above powers of x. Starting with the rightmost place value, which represents multiples of x^0, each subsequent place value to the left represents multiples of x to the next power.  For example, ABC in base x would be equivalent to A*x^2 + B*x^1 + C*x^0. Each place value may contain one of x different symbols, with values 0 through x-1. 
+
+1. Binary, or the base 2 system, is useful in computer science because the 0s and 1s of binary are analogous to the on and off states of bits, and using binary allows computers to represent numbers and operations. 
+
+2. 
+     0. Start with the rightmost number (the 0th number), multiply it by 2^0, and call this value v.
+     1. Moving from right to left, add the product the nth number and 2^n to v. 
+The final value of v will be the value of the binary number you are trying to convert. 
+
+3. 
+     0. Given the decimal number n, divide n by 2 and record the remainder. 
+     1. Using the quotient from the previous step, divide by 2 again and record the remainder to the left of the previous remainder(s).
+     2. Repeat step 1 until your quotient is 1. 
+Your final sequence of remainders will be the binary representation of n. 
