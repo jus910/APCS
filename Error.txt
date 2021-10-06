@@ -1,0 +1,5 @@
+error: non-static variable HelloMsg cannot be referenced from a static context
+
+error: non-static variable SetHelloMsg cannot be referenced from a static context
+
+error: constructor BigSib in class BigSib cannot be applied to given types;
