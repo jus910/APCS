@@ -16,7 +16,7 @@
    withdrawing money
 **/
 
-public class BankAccount {
+public class BankAccountMain {
 
   //instance variables
   private String name;
@@ -85,10 +85,17 @@ public class BankAccount {
   //main method for testing
   public static void main( String[] args ) {
     // INSERT YOUR METHOD CALLS FOR TESTING HERE
-    BankAccount ba = new BankAccount();
+    BankAccountMain ba = new BankAccountMain();
     System.out.println(ba.toString());
     ba.setName("tater");
-
+    ba.setPasswd("ABC123");
+    short test = 1234;
+    ba.setPin(test);
+    ba.setAcctNum(573957);
+    ba.setBalance(80000);
+    ba.deposit(100);
+    ba.withdraw(50000);
+    System.out.println(ba.toString());
   }//end main()
 
 }//end class BankAccount
