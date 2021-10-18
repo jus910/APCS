@@ -86,6 +86,9 @@ public class BankAccount {
   public static void main( String[] args ) {
     // INSERT YOUR METHOD CALLS FOR TESTING HERE
     BankAccount ba = new BankAccount();
+    System.out.println(ba.toString());
+    ba.setName("tater");
+
   }//end main()
 
 }//end class BankAccount
