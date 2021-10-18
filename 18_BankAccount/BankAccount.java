@@ -8,12 +8,12 @@ Disco:
 
 public class BankAccount{
   String Name;
-	String Password;
-	int PIN;
-	int AccountNumber;
-	double Balance;
+  String Password;
+  int PIN;
+  int AccountNumber;
+  double Balance;
 
-	public void SetName(String NameInput){
+  public void SetName(String NameInput){
 		Name = NameInput;
   }
 
