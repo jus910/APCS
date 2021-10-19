@@ -3,7 +3,7 @@ APCS
 HW 19 -- Mo Money Mo Problems ...MORE AWESOME
 2021 10 18
 
-QCC:
+QCC: 
 Disco:
 
 */
@@ -33,15 +33,29 @@ public class BankAccount {
   }
 
   public short setPin( short newPin ) {
+    if (newPin>=1000 && newPin<=9998){
+      short oldPin = pin;
+      pin = newPin;
+      return oldPin;
+    }
     short oldPin = pin;
-    pin = newPin;
+    pin = 9999;
+    System.out.println("Your PinNumber is not in range");
     return oldPin;
+
   }
 
   public int setAcctNum( int newAcctNum ) {
+    if (newAcctNum>=100000000 && newAcctNum<=999999998){
+      int oldAcctNum = acctNum;
+      acctNum = newAcctNum;
+      return oldAcctNum;
+    }
     int oldAcctNum = acctNum;
-    acctNum = newAcctNum;
+    System.out.println("Your AccountNumber is not in range");
+    acctNum = 999999999;
     return oldAcctNum;
+
   }
 
   public double setBalance( double newBalance ) {
@@ -56,8 +70,23 @@ public class BankAccount {
     balance = balance + depositAmount;
   }
 
-  public void withdraw( double withdrawAmount ) {
-    balance = balance - withdrawAmount;
+  public boolean withdraw( double withdrawAmount ) {
+    if (withdrawAmount>balance){
+      System.out.println("You do not have enough money");
+      return false;
+    }
+
+    balance=balance-withdrawAmount;
+    return true;
+  }
+
+  public boolean authenticate(int accountNumberInput, String passwordInput){
+    if (accountNumberInput==acctNum && passwordInput==passwd){
+      System.out.println("Authenticated!!!");
+      return true;
+    }
+    System.out.println("Not Authenticated");
+    return false;
   }
 
 
@@ -78,14 +107,24 @@ public class BankAccount {
   public static void main( String[] args ) {
     // INSERT YOUR METHOD CALLS FOR TESTING HERE
     BankAccount ba = new BankAccount();
+
     System.out.println(ba.toString());
+
     ba.setName("tater");
     ba.setPasswd("ABC123");
-    short test = 1234;
+    ba.authenticate(11,"aj");
+    short test = 123;
     ba.setPin(test);
-    ba.setAcctNum(573957);
+    ba.setAcctNum(575757);
+    ba.withdraw(500000);
+    System.out.println(ba.toString());
+
+    test=1234;
+    ba.setPin(test);
+    ba.setAcctNum(111111111);
+    ba.authenticate(111111111,"ABC123");
     ba.setBalance(80000);
-    ba.deposit(100);
+    ba.deposit(20000);
     ba.withdraw(50000);
     System.out.println(ba.toString());
   }//end main()
