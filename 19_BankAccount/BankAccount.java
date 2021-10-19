@@ -1,20 +1,12 @@
-/**
-   Clyde "Thluffy" Sinclair
-   APCS pd0
-   HW18 -- building a more meaningful class
-   2021-10-18
-   instance variables for storing...
-   account holder's full name
-   account password
-   4-digit PIN
-   9-digit account number
-   account balance
-   and methods for...
-   setting each attribute
-   printing out all of an account’s info at once
-   depositing money
-   withdrawing money
-**/
+/* The Tator Tots (Humans: Daniel, Justin, Ari; Ducks: Ralph, Alfred)
+APCS
+HW 19 -- Mo Money Mo Problems ...MORE AWESOME
+2021 10 18
+
+QCC:
+Disco:
+
+*/
 
 public class BankAccount {
 
