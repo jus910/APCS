@@ -3,9 +3,8 @@ APCS
 HW 19 -- Mo Money Mo Problems ...MORE AWESOME
 2021 10 18
 
-QCC: 
+QCC:
 Disco:
-
 */
 
 public class BankAccount {
@@ -17,7 +16,6 @@ public class BankAccount {
   private int acctNum;
   private double balance;
   //---------------------------------------------
-
 
   //mutators
   public String setName( String newName ) {
