@@ -25,7 +25,7 @@ public class StatsDriver{
     System.out.println(james.max(3.0,6.0,3.0));
     System.out.println(james.max(3.0,3.0,6.0));
 
-    System.out.println("Geo mean nonsense, should return 9 then 3");
+    System.out.println("Geo mean, should return 9 then 3");
     System.out.println(james.geoMean(3,27));
     System.out.println(james.geoMean(3.0,27.0));
 
