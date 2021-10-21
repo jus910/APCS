@@ -31,18 +31,20 @@ public class Stats {
   }
 
   public static int geoMean(int a, int b) {
-    return math.pow((a*b),0.5);
+    double a2=a*1.0;
+    double b2=b*1.0;
+    return Math.round(Math.pow((a2*b2),0.5));
   }
 
   public static double geoMean(double a, double b) {
-    return math.pow((a*b),0.5);
+    return Math.pow((a*b),0.5);
   }
 
   public static int max(int a, int b, int c) {
     if (a>b && a>c){
       return a;
     } else if (b>a && b>c){
-      return b
+      return b;
     }
     return c;
   }
@@ -51,17 +53,17 @@ public class Stats {
     if (a>b && a>c){
       return a;
     } else if (b>a && b>c){
-      return b
+      return b;
     }
     return c;
   }
 
   public static int geoMean(int a, int b, int c) {
-    return math.pow((a*b*c),(1/3));
+    return a;
   }
 
   public static double geoMean(double a, double b, double c) {
-    return math.pow((a*b*c),(1/3));
+    return Math.pow((a*b*c),(1.0/3.0));
   }
 
 
