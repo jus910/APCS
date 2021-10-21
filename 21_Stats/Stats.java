@@ -1,54 +1,67 @@
-/**
-   Clyde "Thluffy" Sinclair
-   APCS
-   HW20 --
-   2021-10-21
-   TASK:
-   Implement each method without typecasting.
-   xtra: harmonic mean is the reciprocal of the
-   arithmetic mean of the reciprocals
- **/
+/* The Tator Tots (Humans: Daniel, Justin, Ari; Ducks: Ralph, Alfred, Javier)
+APCS
+HW21: Stats
+2021 10 20
+QCC:
+Disco:
+*/
 
 public class Stats {
 
   public static int mean(int a, int b) {
-
+    return (a+b)/2;
   }
 
   public static double mean(double a, double b) {
-
+    return (a+b)/2;
   }
 
   public static int max(int a, int b) {
-
+    if (a>b){
+      return a;
+    }
+    return b;
   }
 
   public static double max(double a, double b) {
-
+    if (a>b){
+      return a;
+    }
+    return b;
   }
 
   public static int geoMean(int a, int b) {
-
+    return math.pow((a*b),0.5);
   }
 
   public static double geoMean(double a, double b) {
-
+    return math.pow((a*b),0.5);
   }
 
   public static int max(int a, int b, int c) {
-
+    if (a>b && a>c){
+      return a;
+    } else if (b>a && b>c){
+      return b
+    }
+    return c;
   }
 
   public static double max(double a, double b, double c) {
-
+    if (a>b && a>c){
+      return a;
+    } else if (b>a && b>c){
+      return b
+    }
+    return c;
   }
 
   public static int geoMean(int a, int b, int c) {
-
+    return math.pow((a*b*c),(1/3));
   }
 
   public static double geoMean(double a, double b, double c) {
-
+    return math.pow((a*b*c),(1/3));
   }
 
 
