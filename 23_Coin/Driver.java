@@ -40,8 +40,18 @@ public class Driver {
       else {
         System.out.println( "No match. Firestarter you can not be." );
       }
-
+	int matches=1;
+	while ((matches<=65536) && ((matches%2005)>0)) {
+		wayne.flip();
+		yours.flip();
+		if (yours.equals(wayne)) {
+			matches=matches+1;
+		}
+	}
+	System.out.println("You have had " + matches +" matches");
 
   }//end main()
 
 }//end class
+
+
