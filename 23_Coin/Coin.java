@@ -5,7 +5,7 @@ HW23 -- What Does Equality Look Like?
 2021-10-23
 time spent: 0.6 hours
 QCC:
-
+  What is the point of the reset method?
 DISCO:
 
 */
@@ -27,13 +27,8 @@ public class Coin {
    *  postcond:
    ***/
   public Coin() {
-    value;
-    upFace;
-    name;
-    flipCtr;
-    headsCtr;
-    tailsCtr;
-    bias;
+    upFace = "heads";
+    bias = 0.5;
   }
 
 
@@ -52,6 +47,8 @@ public class Coin {
   public Coin( String s ) {
     assignValue(s);
     name = s;
+    upFace = "heads";
+    bias = 0.5;
   }
 
 
@@ -64,6 +61,7 @@ public class Coin {
     assignValue(s);
     name = s;
     upFace=nowFace;
+    bias = 0.5;
   }
 
 
@@ -123,7 +121,12 @@ public class Coin {
       postcond: Coin's attribs reset to starting vals
   ***/
   public void reset( String s, double d ) {
-
+    if (s=="heads" || s=="tails"){
+      name=s;
+    }
+    if (d>=0 && d<=1.0){
+      bias=d;
+    }
   }
 
 
@@ -137,7 +140,14 @@ public class Coin {
    * Returns "heads" or "tails"
    ***/
   public String flip() {
-    return "0";
+    if (Math.random()<bias){
+      headsCtr=headsCtr+1;
+      upFace="heads";
+    } else {
+      tailsCtr=tailsCtr+1;
+      upFace="tails";
+    }
+    return upFace;
   }
 
 
@@ -158,7 +168,7 @@ public class Coin {
    * postcond: Return String comprised of name and current face
    ***/
   public String toString() {
-    return "name:" + name + "--" + upFace;
+    return name + "--" + upFace;
   }
 
 }//end class
