@@ -1,14 +1,25 @@
-/***
- *  class Coin
- *  by Clyde "Thluffy" Sinclair
- *  SKELETON
- ***/
+/*
+Team Potato Pounders (Human: Justin, Ari; Ducks: Alfred, Javier)
+APCS
+HW23 -- What Does Equality Look Like?
+2021-10-23
+time spent: 0.6 hours
+QCC:
+
+DISCO:
+
+*/
 
 public class Coin {
 
   //attributes aka instance vars
-
-
+  private double value;
+  private String upFace;
+  private String name;
+  private int flipCtr;
+  private int headsCtr;
+  private int tailsCtr;
+  private double bias;
 
   /***
    *  Coin() -- default constuctor
@@ -16,7 +27,13 @@ public class Coin {
    *  postcond:
    ***/
   public Coin() {
-
+    value;
+    upFace;
+    name;
+    flipCtr;
+    headsCtr;
+    tailsCtr;
+    bias;
   }
 
 
@@ -31,8 +48,10 @@ public class Coin {
       "dollar"
       postcond:
   ***/
-  public Coin( String s ) {
 
+  public Coin( String s ) {
+    assignValue(s);
+    name = s;
   }
 
 
@@ -42,30 +61,32 @@ public class Coin {
       postcond:
   ***/
   public Coin( String s, String nowFace ) {
-
+    assignValue(s);
+    name = s;
+    upFace=nowFace;
   }
 
 
   // Accessors...
   // ----------------------------
   public String getUpFace() {
-
+    return upFace;
   }
 
   public int getFlipCtr() {
-
+    return flipCtr;
   }
 
   public double getValue() {
-
+    return value;
   }
 
   public int getHeadsCtr() {
-
+    return headsCtr;
   }
 
   public int getTailsCtr() {
-
+    return tailsCtr;
   }
   // ----------------------------
 
@@ -77,7 +98,22 @@ public class Coin {
    * Returns value assigned.
    ***/
   private double assignValue( String s ) {
-
+    if (s=="penny"){
+      value=0.01;
+    } else if(s=="nickel"){
+      value=0.05;
+    } else if(s=="dime"){
+      value=0.10;
+    } else if(s=="quarter"){
+      value=0.25;
+    } else if(s=="half dollar"){
+      value=0.50;
+    } else if(s=="dollar"){
+      value=1.00;
+    } else {
+      System.out.println("Please put a valid coin");
+    }
+    return value;
   }
 
 
@@ -101,7 +137,7 @@ public class Coin {
    * Returns "heads" or "tails"
    ***/
   public String flip() {
-
+    return "0";
   }
 
 
@@ -112,7 +148,7 @@ public class Coin {
    * or both showing tails. False otherwise.
    ***/
   public boolean equals( Coin other ) {
-
+    return upFace==other.upFace;
   }
 
 
@@ -122,7 +158,7 @@ public class Coin {
    * postcond: Return String comprised of name and current face
    ***/
   public String toString() {
-
+    return "name:" + name + "--" + upFace;
   }
 
 }//end class
