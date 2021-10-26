@@ -22,32 +22,24 @@ public class Driver {
       //test 2nd overloaded constructor
       Coin wayne = new Coin( "dollar", "heads" );
       //test toString() methods of each Coin
-      System.out.println("mine: " + mine);
-      System.out.println("yours: " + yours);
-      System.out.println("wayne: " + wayne);
-      //test flip() method
-      System.out.println("\nAfter flipping...");
-      yours.flip();
-      wayne.flip();
-      System.out.println("yours: " + yours);
-      System.out.println("wayne: " + wayne);
-      //test equals() method
-      if ( yours.equals(wayne) ) {
-        System.out.println( "Matchee matchee!" );
-      }
-      else {
-        System.out.println( "No match. Firestarter you can not be." );
-      }
-	int matches=1;
-	while ((matches<=65536) && ((matches%2005)>0)) {
+
+	int matches=0;
+  int headsTotal=0;
+  // arbitrary int x
+  int x=120000;
+	while ((matches<=65536) || ((matches%2005)>0) || (matches==0) || (headsTotal<=x) ) {
 		wayne.flip();
 		yours.flip();
+    headsTotal=wayne.getHeadsCtr()+yours.getHeadsCtr();
 		if (yours.equals(wayne)) {
 			matches=matches+1;
 		}
 	}
-	System.out.println("You have had " + matches +" matches");
-
+	System.out.println("We have had " + matches +" matches");
+  System.out.println("We have had " + headsTotal +" totals heads");
+  System.out.println("We have had " + (wayne.getTailsCtr()+yours.getTailsCtr()) +" totals tails");
+  System.out.println("wayne has landed on heads " + wayne.getHeadsCtr() + " times and tails " + wayne.getTailsCtr() + " times");
+  System.out.println("yours has landed on heads " + yours.getHeadsCtr() + " times and tails " + yours.getTailsCtr() + " times");
   }//end main()
 
 }//end class
