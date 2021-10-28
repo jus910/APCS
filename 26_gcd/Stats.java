@@ -7,6 +7,9 @@ Disco:
   - It helps to draw out the recursion to uderstand it.
   - If we want a method with return statements in the "if" or "else if" clauses to compile we either need a
     return statement outside the conditional or an else statement with a conditional
+ALGO:
+  - The algo takes two integers, a and b. If a is equal to b, it will return a. If a is not equal to b, then it determines if a is greater than b. 
+  If this is true, it will subtract b from a and set a as that number. If false, it will subtract a from b and set b as that number. Then it will loop. 
 Time Spent: 0.5 hrs
 */
 
