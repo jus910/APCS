@@ -1,0 +1,7 @@
+APCS
+HW28: PPMP
+2021 10 31
+QCC:
+- What does the all correct star mean on coding bat?
+Disco:
+- ALWAYS USE .EQUALS() WHEN DEALING WITH STRING BOOLEANS, BAD THINGS HAPPEN WHEN WE DONT
