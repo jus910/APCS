@@ -1,33 +1,31 @@
 /***
- * Nacho Patcho (Gabriel Thompson + Iggy, Jacob Ng + PreGuac, Faiza Huda + Truthful Tom)
+ * Clyde "Thluffy" Sinclair
  * APCS
- * HW31 -- Otnay Ybay ethay Airhay Onway Ymay Inneechay Inchay Inchay
- * 2021-11-03w
- * time spent: 0.6hrs
+ * HW31 --
+ * 2021-11-04r
+ * time spent: _hrs
  *
  * class Pig
  * a Pig Latin translator
+ * ~~~~~~~~~~~~~~~~~~~ SKELETON ~~~~~~~~~~~~~~~~~~~
+ *           9
+ *     ,--.-'-,--.
+ *     \  /-~-\  /
+ *    / )' a a `( \
+ *   ( (  ,---.  ) )
+ *    \ `(_o_o_)' /
+ *     \   `-'   /
+ *      | |---| |
+ *      [_]   [_]
+ *      PROTIP: Make this class compilable first,
+ *      then develop and test one method at a time.
+ *      NEVER STRAY TOO FAR FROM COMPILABILITY/RUNNABILITY!
  ***/
-
-/***
- * DISCO:
- *  - "final" can be used to a referable data value that cannot be changed (not a variable)
- *  - To convert from char to String, you can just add an empty String to the character
- *  - .toLowerCase() returns the lowercase form of a character
- *  - To convert a one-character String to a char, you can just do .charAt(0) to take the
- *    first character
- *
- * QCC:
- *  - Why can't you cast char to String? Why can't you cast String to char? Does this have
- *    to do with String being a class and char being a primitive?
- *  - Why should you make data a "final" rather than a variable? Is it less memory-intensive?
- *  - Should 'y' be considered a vowel?
-***/
 
 public class Pig
 {
   //Q: How does this initialization make your life easier?
-  //A: It can be referenced by the whole class and can be changed just by changing the variable.
+  // It gives us a refrence that we can use in all of our methods
   private static final String VOWELS = "aeiou";
 
 
@@ -39,13 +37,7 @@ public class Pig
     =====================================*/
   public static boolean hasA( String w, String letter ) 
   {
-    for ( int i = 0 ; i < w.length() ; i++ ) {
-      if ( w.charAt(i) == letter.charAt(0) ) {
-        return true;
-      }
-    }
-    
-    return false;
+    return w.contains(letter);
   }//end hasA()
 
 
@@ -55,7 +47,7 @@ public class Pig
     =====================================*/
   public static boolean isAVowel( String letter ) 
   {
-    return hasA(VOWELS, letter.toLowerCase());
+    /* YOUR IMPLEMENTATION HERE */
   }
 
 
@@ -66,14 +58,7 @@ public class Pig
     =====================================*/
   public static int countVowels( String w ) 
   {
-    int count = 0;
-    
-    for ( int i = 0 ; i < w.length() ; i++ ) {
-      if ( isAVowel(w.charAt(i) + "") ) {
-        count++;
-      }
-    }
-    return count;
+    /* YOUR IMPLEMENTATION HERE */
   }
 
 
@@ -85,14 +70,7 @@ public class Pig
     =====================================*/
   public static boolean hasAVowel( String w ) 
   {
-    // you could utilize countVowels() for this, but then if there's multiple, you're counting
-    // unnecessary ones
-    for ( int i = 0 ; i < w.length() ; i++ ) {
-      if (isAVowel(w.charAt(i) + "")) {
-        return true;
-      }
-    }
-    return false;
+    /* YOUR IMPLEMENTATION HERE */
   }
 
 
@@ -103,36 +81,14 @@ public class Pig
     =====================================*/
   public static String allVowels( String w ) 
   {
-    String onlyVowels = "";
-    
-    for ( int i = 0 ; i < w.length() ; i++ ) {
-      char c = w.charAt(i);
-      
-      if (isAVowel(c + "")) {
-       onlyVowels += c;
-      }
-    }
-    return onlyVowels;
+    /* YOUR IMPLEMENTATION HERE */
   }
 
 
   public static void main( String[] args ) 
   {
-    // test cases
-    System.out.println(" === TEST CASES === ");
-    System.out.println(hasA("nacho", "h") + " ... should be true");
-    System.out.println(hasA("nacho", "x") + " ... should be false");
-    System.out.println(isAVowel("x") + " ... should be true");
-    System.out.println(isAVowel("e") + " ... should be false");
-    System.out.println(isAVowel("🙂") + " ... should be false");
-    System.out.println(countVowels("epizootiologies") + " ... should be 9");
-    System.out.println(countVowels("srpska") + " ... should be 1");
-    System.out.println(countVowels("Szymankowszczyzna") + " ... should be 3");
-    System.out.println(hasAVowel("Rhythms") + " ... should be false");
-    System.out.println(hasAVowel("Stuyvesant") + " ... should be true");
-    System.out.println(allVowels("pneumonoultramicroscopicsilicovolcanoconiosis") + " ... should be \"euoouaiooiiiooaooioi\"");
-    System.out.println(allVowels("strengths") + " ... should be \"e\"");
-    System.out.println(allVowels("Twyndyllyngs") + " ... should be \"\"");
+    hasA("cat", "a")
+    hasA("cat", "p")
   }//end main()
 
 }//end class Pig
