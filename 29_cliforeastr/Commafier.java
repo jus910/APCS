@@ -1,64 +1,127 @@
-/* The Tator Tots (Humans: Daniel, Justin, Ari; Ducks: Ralph, Alfred)
-APCS
-HW 29: Which Way Do You Roll?
-2021 11 3
+/***
+ * The Tator Tots (Humans: Daniel, Justin, Ari; Ducks: Ralph, Alfred)
+ * APCS
+ * HW31 -- Otnay Ybay ethay Airhay Onway Ymay Inneechay Inchay Inchay
+ * 2021-11-03
+ * time spent: 0.67hrs
+ * QCC:
+ 		- Is there a better way to call a part of a string other than using substring?
+ * Disco:
+ 		- The contains method returns a boolean on whether the input string is inside the string that called it
+ 		- Using final when initializing a variable will indicate that it will not be changed or edited
+ * class Pig
+ * a Pig Latin translator
+ * ~~~~~~~~~~~~~~~~~~~ SKELETON ~~~~~~~~~~~~~~~~~~~
+ *           9
+ *     ,--.-'-,--.
+ *     \  /-~-\  /
+ *    / )' a a `( \
+ *   ( (  ,---.  ) )
+ *    \ `(_o_o_)' /
+ *     \   `-'   /
+ *      | |---| |
+ *      [_]   [_]
+ *      PROTIP: Make this class compilable first,
+ *      then develop and test one method at a time.
+ *      NEVER STRAY TOO FAR FROM COMPILABILITY/RUNNABILITY!
+ ***/
 
-QCC:
-  - Can we always use a while loop or for loop when asked to make an iterative method?
-Disco:
-  - toString() is a method of class Integer that takes an int and returns a str
-    - Integer.toString(int a) -> str a
-  - We should use variables in place of large operations we do many times
-  - for this loops work like:
-    -for (thing : list){do stuff to each thing in list}
-time spent: 1.5 hrs
-*/
+public class Pig
+{
+  //Q: How does this initialization make your life easier?
+  // It gives us a refrence that we can use in all of our methods
+  private static final String VOWELS = "aeiou";
 
-public class Commafier{
-  public static String commafyF(int num){
-    String str = Integer.toString(num);
 
-    int r = str.length()%3;
+  /*=====================================
+    boolean hasA(String,String) -- checks for a letter in a String
+    pre:  w != null, letter.length() == 1
+    post: hasA("cat", "a") -> true
+    hasA("cat", "p")       -> false
+    =====================================*/
+  public static boolean hasA( String w, String letter )
+  {
+    return w.contains(letter);
+  }//end hasA()
 
-    String output = str.substring(0,r);
 
-    for(int i=r;i<str.length();i=i+3){
-      output = output + "," + str.substring(i,i+3);
+  /*=====================================
+    boolean isAVowel(String) -- tells whether a letter is a vowel
+    precondition: letter.length() == 1
+    =====================================*/
+  public static boolean isAVowel( String letter )
+  {
+    return hasA(VOWELS, letter);
+    /* YOUR IMPLEMENTATION HERE */
+  }
+
+
+  /*=====================================
+    int countVowels(String) -- counts vowels in a String
+    pre:  w != null
+    post: countVowels("meatball") -> 3
+    =====================================*/
+  public static int countVowels( String w )
+  {
+    int counter=0;
+    for (int i=0; i<w.length();i++){
+      if (isAVowel(w.substring(i,i+1))){
+        counter++;
+      }
     }
-    if (r==0){
-      return output.substring(1);
+    return counter;
+    /* YOUR IMPLEMENTATION HERE */
+  }
+
+
+  /*=====================================
+    boolean hasAVowel(String) -- tells whether a String has a vowel
+    pre:  w != null
+    post: hasAVowel("cat") -> true
+    hasAVowel("zzz")       -> false
+    =====================================*/
+  public static boolean hasAVowel( String w )
+  {
+    for (int i=0; i<w.length();i++){
+      if (isAVowel(w.substring(i,i+1))){
+        return true;
+  		}
+    }
+    return false;
+  }
+
+  /*=====================================
+    String allVowels(String) -- returns vowels in a String
+    pre:  w != null
+    post: allVowels("meatball") -> "eaa"
+    =====================================*/
+  public static String allVowels( String w )
+  {
+    String output = "";
+    for (int i=0; i<w.length();i++){
+      if (isAVowel(w.substring(i,i+1))){
+        output = output + w.substring(i,i+1);
+  		}
     }
     return output;
+    /* YOUR IMPLEMENTATION HERE */
   }
 
-  public static String commafyR(int num){
 
-    String str = Integer.toString(num);
+  public static void main( String[] args )
+  {
+    System.out.println(hasA("cat", "a")); //returns true
+    System.out.println(hasA("cat", "p")); //returns false
+    System.out.println("//");
+    System.out.println(isAVowel("a")); //returns true
+    System.out.println(isAVowel("z")); //returns false
+    System.out.println("//");
+    System.out.println(countVowels("meatball")); //returns 3
+    System.out.println("//");
+    System.out.println(hasAVowel("cat")); //returns true
+    System.out.println(hasAVowel("zzz")); //returns false
+    System.out.println("//");
+    System.out.println(allVowels("meatball")); //returns "eaa"
+  }//end main()
 
-    if (str.length()<=3){
-      return str;
-    } else {
-      String v=str.substring(0,str.length()-3); // v will remove the last 3 digits of the number
-      return commafyR(Integer.parseInt(v)) + "," + str.substring(str.length()-3); //the latter part will add the last 3 digits back
-    }
-  }
-
-  public static void main(String[] args){
-    // System.out.println(commafyF(12345678));
-    // System.out.println(commafyF(1234567));
-    // System.out.println(commafyF(123456));
-    // System.out.println(commafyF(1000));
-    // System.out.println(commafyF(1));
-
-    // System.out.println(commafyR(12345678));
-    // System.out.println(commafyR(1234567));
-    // System.out.println(commafyR(123456));
-    // System.out.println(commafyR(1000));
-    // System.out.println(commafyR(1));
-
-    for (String s: args){
-      System.out.println(commafyR(Integer.parseInt(s)));
-      System.out.println(commafyF(Integer.parseInt(s)));
-    }
-  }
-}
+}//end class Pig
