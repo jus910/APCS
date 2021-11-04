@@ -1,10 +1,14 @@
 /***
- * Clyde "Thluffy" Sinclair
+ * The Tator Tots (Humans: Daniel, Justin, Ari; Ducks: Ralph, Alfred)
  * APCS
- * HW31 --
- * 2021-11-04r
- * time spent: _hrs
- *
+ * HW31 -- Otnay Ybay ethay Airhay Onway Ymay Inneechay Inchay Inchay
+ * 2021-11-03
+ * time spent: 0.75hrs
+ * QCC:
+ 		- Is there a better way to call a part of a string other than using substring?
+ * Disco:
+ 		- The contains method returns a boolean on whether the input string is inside the string that called it
+ 		- Using final when initializing a variable will indicate that it will not be changed or edited
  * class Pig
  * a Pig Latin translator
  * ~~~~~~~~~~~~~~~~~~~ SKELETON ~~~~~~~~~~~~~~~~~~~
