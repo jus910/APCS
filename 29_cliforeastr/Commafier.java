@@ -3,7 +3,7 @@
  * APCS
  * HW31 -- Otnay Ybay ethay Airhay Onway Ymay Inneechay Inchay Inchay
  * 2021-11-03
- * time spent: 0.67hrs
+ * time spent: 0.75hrs
  * QCC:
  		- Is there a better way to call a part of a string other than using substring?
  * Disco:
