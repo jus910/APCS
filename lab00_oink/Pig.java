@@ -1,6 +1,6 @@
 public class Pig {
 
-  private static final String VOWELS = "aeiou";
+  private static final String VOWELS = "aeiouAEIOU";
 
 
   /**
@@ -63,7 +63,8 @@ public class Pig {
     hasAVowel("zzz") -> false
     **/
   public static boolean hasAVowel( String w ) {
-    return w.indexOf(w) >= 0;
+    // return w.indexOf(w) >= 0;
+    return countVowels(w) > 0;
   }
 
 
@@ -122,15 +123,14 @@ public class Pig {
     engToPig("java")   --> "avajay"
     **/
   public static String engToPig( String w ) {
-
     String ans = "";
-
     if ( beginsWithVowel(w) )
       ans = w + "way";
-
     else {
-      int vPos = w.indexOf( firstVowel(w) );
-      ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
+        if( !firstVowel(w).equals("")){
+            int vPos = w.indexOf( firstVowel(w) );
+            ans = w.substring(vPos) + w.substring(0,vPos) + "ay";}
+        else{ ans = w.substring(w.length() - 1 ) + w.substring(0, w.length() - 1) + "ay"; }
     }
 
     return ans;
