@@ -151,8 +151,22 @@ public class Pig{
       else {
           if( !firstVowel(w).equals("")){
               int vPos = w.indexOf( firstVowel(w) );
-              ans = w.substring(vPos) + w.substring(0,vPos) + "ay";}
-          else{ ans = w.substring(w.length() - 1 ) + w.substring(0, w.length() - 1) + "ay"; }
+              if (beginsWithUpper(w)){
+                ans = (w.substring(vPos,vPos+1)).toUpperCase() + w.substring(vPos+1);
+                // the new first letter is capatlized, and the string is added to the end
+                ans = ans + w.substring(0,vPos).toLowerCase()  + "ay";
+                // the og first letter is added to the end with the other letters and ay
+              }
+              else{ans = w.substring(vPos) + w.substring(0,vPos) + "ay";}
+            }
+          else{
+            if (beginsWithUpper(w)) {
+              ans = (w.substring(w.length() - 1 )).toUpperCase() + w.substring(0, w.length() - 1).toLowerCase() + "ay";
+            }
+            else{
+              ans = w.substring(w.length() - 1 ) + w.substring(0, w.length() - 1) + "ay";
+            }
+          }
       }
       return ans;
     }
