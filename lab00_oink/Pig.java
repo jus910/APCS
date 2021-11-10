@@ -1,6 +1,8 @@
-public class Pig {
+public class Pig{
 
   private static final String VOWELS = "aeiouAEIOU";
+  private static final String CAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  private static final String PUNCS = ".,:;!?";
 
 
   /**
@@ -122,6 +124,7 @@ public class Pig {
     engToPig("strong") --> "ongstray"
     engToPig("java")   --> "avajay"
     **/
+
   public static String engToPig( String w ) {
     String ans = "";
     if ( beginsWithVowel(w) )
@@ -136,6 +139,24 @@ public class Pig {
     return ans;
   }
 
+  public static boolean isPunc( String symbol ) {
+	   return PUNCS.indexOf( symbol ) != -1;
+    }
+
+  public static boolean isUpperCase( String letter ) {
+    return CAPS.indexOf(letter) != -1;
+    }
+
+  public static boolean hasAPunc( String w ) {
+        for(int i = 0; i < w.length(); i++){
+            if (isPunc(w.substring(i, i + 1))) {return true;}
+          }
+        return false;
+      }
+
+  public static boolean beginsWithUpper( String w ) {
+    return isUpperCase(w.substring(0,1) );
+    }
 
   public static void main( String[] args ) {
 
@@ -144,6 +165,10 @@ public class Pig {
       System.out.println( "firstVowels \t" + firstVowel(word) );
       System.out.println( "countVowels \t" + countVowels(word) );
       System.out.println( "engToPig \t" + engToPig(word) );
+      System.out.println( "isPunc \t" + isPunc(word) );
+      System.out.println( "isUpperCase \t" + isUpperCase(word) );
+      System.out.println( "hasAPunc \t" + hasAPunc(word) );
+      System.out.println( "beginsWithUpper \t" + beginsWithUpper(word) );
       System.out.println( "---------------------" );
     }
 
