@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Pig{
 
   private static final String VOWELS = "aeiouAEIOU";
@@ -170,6 +171,11 @@ public class Pig{
       System.out.println( "hasAPunc \t" + hasAPunc(word) );
       System.out.println( "beginsWithUpper \t" + beginsWithUpper(word) );
       System.out.println( "---------------------" );
+    }
+
+    Scanner sc = new Scanner( System.in );
+    while( sc.hasNext() ) {
+      System.out.println( "engToPig \t" + engToPig(sc.next()) );
     }
 
   }//end main()
