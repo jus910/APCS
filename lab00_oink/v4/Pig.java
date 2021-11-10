@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Pig{
 
   private static final String VOWELS = "aeiouAEIOU";
