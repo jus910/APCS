@@ -3,7 +3,7 @@
  * APCS
  * lab00_oink
  * 2021-11-09
- * time spent: 3 hrs
+ * time spent: 2 hrs
  * QCC:
  		- How do we account for white space on the scanner?
  * Disco:
