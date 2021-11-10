@@ -1,3 +1,30 @@
+/***
+ * Jerry (Humans: Vansh, Justin, Hamim)
+ * APCS
+ * lab00_oink
+ * 2021-11-09
+ * time spent: 3 hrs
+ * QCC:
+ 		- How do we account for white space on the scanner?
+ * Disco:
+ 		- White space counts as a new line in the scanner
+ * class Pig
+ * a Pig Latin translator
+ * ~~~~~~~~~~~~~~~~~~~ SKELETON ~~~~~~~~~~~~~~~~~~~
+ *           9
+ *     ,--.-'-,--.
+ *     \  /-~-\  /
+ *    / )' a a `( \
+ *   ( (  ,---.  ) )
+ *    \ `(_o_o_)' /
+ *     \   `-'   /
+ *      | |---| |
+ *      [_]   [_]
+ *      PROTIP: Make this class compilable first,
+ *      then develop and test one method at a time.
+ *      NEVER STRAY TOO FAR FROM COMPILABILITY/RUNNABILITY!
+ ***/
+
 import java.util.Scanner;
 public class Pig{
 
