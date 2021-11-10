@@ -171,12 +171,27 @@ public class Pig{
       return ans;
     }
 
+  public static String phraseToPig(String w){
+    String ans="";
+    int startIndex=0;
+    if (w.indexOf(" ")==-1){
+      return engToPig(w);
+    } else {
+      for(int i=0;i<w.length();i++){
+        if ((w.substring(i,i+1)).equals(" ")){
+          ans = ans + engToPig(w.substring(startIndex,i)) + " ";
+          startIndex=i+1;
+        }
+      }
+      return ans;
+    }
+  }
 
   public static void main( String[] args ) {
 
     Scanner sc = new Scanner( System.in );
     while( sc.hasNext() ) {
-      System.out.println( "engToPig \t" + engToPig(sc.next()) );
+      System.out.println( "phraseToPig \t" + phraseToPig(sc.next()) );
     }
 
   }//end main()
