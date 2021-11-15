@@ -5,7 +5,7 @@ HW34 -- A Pirate's Life for Me
 2021-11-14
 time spent: 2 hours
 DISCO
-    - For each loops cannot be used to fill arrays. If you were to use 
+    - For each loops cannot be used to fill arrays. If you were to use
         for(int x : array){
             array[x] = random.nextInt();
         }
@@ -16,15 +16,13 @@ QCC:
     - Normally, there would be an argument in the method that helps keep track of how many recursions have happened, but we
     used a counter variable this time. What is the downside to using a separate variable keep track?
 */
-import java.util.Random;
 
 public class Loopier{
-    public static Random random = new Random();
     public static int counter = 0;
 
     public static void randomIntArray(int[] a) {
         for(int x = 0; x < a.length; x++) {
-            a[x] = random.nextInt();
+            a[x] = (int)(Math.random() * 10);
         }
     }
 
@@ -52,18 +50,18 @@ public class Loopier{
         }
         return -1;
     }
-    
+
     public static int linSearchR(int[] a, int target) {
         if (a.length == 0) {
             counter = 0;
             return -1;
         }
-        
+
         if (a[0] == target) {
             int targetCounter = counter;
             counter = 0;
             return targetCounter;
-        } 
+        }
 
         counter++;
         return linSearchR(subarray(a, 1), target);
@@ -111,7 +109,7 @@ public class Loopier{
         System.out.println("linSearch: " + linSearch(b, 7)); //expected -1
         System.out.println("linSearchR: " + linSearchR(b, 2)); //expected 2
         System.out.println("linSearchR: " + linSearchR(b, 6)); //expected -1
-        
+
         int[] c = {1, 2, 2, 3, 3, 3};
         System.out.println("freq: " + freq(c, 2)); //expected 2
         System.out.println("freq: " + freq(c, 8)); //expected 0
