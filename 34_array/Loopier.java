@@ -1,9 +1,9 @@
 /*
-Kevin Li, Jonathan Song, Justin Mohabir
+Team we forgot: Jonathan Song, Justin Mohabir, Kevin Li
 APCS
-HW 34 -- A Pirate's Life for Me
-2021-11-15
-time spent: 1
+HW34 -- A Pirate's Life for Me
+2021-11-14
+time spent: 2 hours
 DISCO
     - For each loops cannot be used to fill arrays. If you were to use 
         for(int x : array){
@@ -11,6 +11,10 @@ DISCO
         }
         only the first value in the array will be filled
     - array.length exists and it returns the number of values in the array
+    - You can create a static counter outside of a recursive method in order to keep track of how many recursions have passed
+QCC:
+    - Normally, there would be an argument in the method that helps keep track of how many recursions have happened, but we
+    used a counter variable this time. What is the downside to using a separate variable keep track?
 */
 import java.util.Random;
 
@@ -75,7 +79,7 @@ public class Loopier{
         return freqCounter;
     }
 
-    public static int freqR(int[]a, int target) {
+    public static int freqRec(int[]a, int target) {
         if (linSearch(a, target) == -1) {
             int freqCounter = counter;
             counter = 0;
@@ -83,7 +87,7 @@ public class Loopier{
         }
 
         counter++;
-        return freqR(subarray(a, linSearch(a, target) + 1), target);
+        return freqRec(subarray(a, linSearch(a, target) + 1), target);
     }
 
 //creates an array starting from the given index of input a, and ending at the last index of input a
@@ -111,7 +115,7 @@ public class Loopier{
         int[] c = {1, 2, 2, 3, 3, 3};
         System.out.println("freq: " + freq(c, 2)); //expected 2
         System.out.println("freq: " + freq(c, 8)); //expected 0
-        System.out.println("freqR: " + freqR(c, 3)); //expected 3
-        System.out.println("freqR: " + freqR(c, 7)); //expected 0
+        System.out.println("freqR: " + freqRec(c, 3)); //expected 3
+        System.out.println("freqR: " + freqRec(c, 7)); //expected 0
     }
 }
