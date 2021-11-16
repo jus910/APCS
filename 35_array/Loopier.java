@@ -1,22 +1,14 @@
 /*
 Team we forgot: Jonathan Song, Justin Mohabir, Kevin Li
 APCS
-HW34 -- A Pirate's Life for Me
-2021-11-14
-time spent: 2 hours
+HW35 -- A Pirate's Life for Me (refactored)
+2021-11-15
+time spent: .2 hours
 DISCO
-    - For each loops cannot be used to fill arrays. If you were to use
-        for(int x : array){
-            array[x] = random.nextInt();
-        }
-        only the first value in the array will be filled
-    - array.length exists and it returns the number of values in the array
-    - You can create a static counter outside of a recursive method in order to keep track of how many recursions have passed
+    - 
 QCC:
-    - Normally, there would be an argument in the method that helps keep track of how many recursions have happened, but we
-    used a counter variable this time. What is the downside to using a separate variable keep track?
+    - Is there a specific range we should aim for in the random number generator if it's not given in the instructions?
 */
-
 public class Loopier{
     public static int counter = 0;
 
@@ -50,18 +42,18 @@ public class Loopier{
         }
         return -1;
     }
-
+    
     public static int linSearchR(int[] a, int target) {
         if (a.length == 0) {
             counter = 0;
             return -1;
         }
-
+        
         if (a[0] == target) {
             int targetCounter = counter;
             counter = 0;
             return targetCounter;
-        }
+        } 
 
         counter++;
         return linSearchR(subarray(a, 1), target);
@@ -109,7 +101,7 @@ public class Loopier{
         System.out.println("linSearch: " + linSearch(b, 7)); //expected -1
         System.out.println("linSearchR: " + linSearchR(b, 2)); //expected 2
         System.out.println("linSearchR: " + linSearchR(b, 6)); //expected -1
-
+        
         int[] c = {1, 2, 2, 3, 3, 3};
         System.out.println("freq: " + freq(c, 2)); //expected 2
         System.out.println("freq: " + freq(c, 8)); //expected 0
