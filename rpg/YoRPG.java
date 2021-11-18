@@ -10,7 +10,7 @@
  * The only modification you should make to this driver file is moving comment bar down in main method, and filling in DISCO/QCC
  * (If you feel other changes are merited, note what and why, so that we may discuss on the 'morrow.)
  * 
- * DISCO:
+ * DISCO: Missing Protagonist and Monster classes
  *
  * QCC:
  * 
