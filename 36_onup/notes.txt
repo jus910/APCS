@@ -1,0 +1,17 @@
+ - Compile Time Errors 
+  - Multiple error messages does not mean multiple errors 
+  - Check for syntax errors, by reading the code and error message carefully 
+  - Debug step by step, compile each piece of code at a time 
+- Run Time Errors 
+   - Test Infinite loops with print messages 
+   - Test Infinitie recursion with print message and check for base case (StackOverflowError)
+   - The exception errors are pretty self explanatory 
+- Logic Errors 
+  - Only you know what the program is supposed to do 
+  - Use variables to make code clearer 
+    - Don't just use large number expressions without knowing what each part represents
+  - Go for a walk 
+- Don't be afraid to ask others for help 
+  - Be clear with your problem and how you got there 
+  - Explain problem to duckie
+- Take time to understand the bugs, and what your program is supposed to do 
