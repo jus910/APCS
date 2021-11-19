@@ -11,8 +11,43 @@
  * (If you feel other changes are merited, note what and why, so that we may discuss on the 'morrow.)
  * 
  * DISCO: Missing Protagonist and Monster classes
- *
+ * 	- Protagonist constructor takes in a name
+ *  - Protagonist class methods
+ * 		- isAlive() returns a boolean
+ * 		- specialize() returns void
+ * 		- normalize() returns void
+ * 		- attack() returns an int (is this a getter method?)
+ * 		- getName() returns a String
+ * 	- Monster constructor has no parameters
+ * 	- Monster class methods
+ * 		- isAlive() returns a boolean
+ * 		- attack() returns an int
+ * 	- Both likely have an HP stat and an attack stat as instance variables because you need an HP stat to know if you're alive,
+ * 		and it seems like the damage dealt by attack() may vary depending on the protagonist and the monster
+ * 
+ * YoRPG.java:30: error: cannot find symbol
+ * private Protagonist pat;   
+ *         ^
+ * symbol:   class Protagonist
+ * location: class YoRPG
+ * YoRPG.java:31: error: cannot find symbol
+ * private Monster smaug;     
+ *         ^
+ * symbol:   class Monster
+ * location: class YoRPG
+ * YoRPG.java:88: error: cannot find symbol
+ *   pat = new Protagonist( name );
+ *             ^
+ * symbol:   class Protagonist
+ * location: class YoRPG
+ * YoRPG.java:108: error: cannot find symbol
+ *           smaug = new Monster();
+ *                       ^
+ * symbol:   class Monster
+ * location: class YoRPG
+4 errors
  * QCC:
+ * 	- What do "try" and "catch" do?
  * 
  **********************************************/
 
@@ -162,20 +197,26 @@ public class YoRPG {
   public static void main( String[] args ) {
     //As usual, move the begin-comment bar down as you progressively 
     //test each new bit of functionality...
-
-    /*================================================
-    //loading...
     YoRPG game = new YoRPG();
-
     int encounters = 0;
-
     while( encounters < MAX_ENCOUNTERS ) {
     if ( !game.playTurn() )
     break;
     encounters++;
     System.out.println();
     }
+    System.out.println( "Thy game doth be over." );
 
+    /*================================================
+    //loading...
+    YoRPG game = new YoRPG();
+    int encounters = 0;
+    while( encounters < MAX_ENCOUNTERS ) {
+    if ( !game.playTurn() )
+    break;
+    encounters++;
+    System.out.println();
+    }
     System.out.println( "Thy game doth be over." );
 	  ================================================*/
   }//end main
