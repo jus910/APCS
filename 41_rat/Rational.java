@@ -2,7 +2,7 @@
 // APCS pd8
 // HW41 -- Be Rational
 // 2021-11-30
-// Time spent: .4 hours
+// Time spent: .3 hours
 
 /*
 QCC:
