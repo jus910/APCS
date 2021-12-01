@@ -6,7 +6,7 @@
 
 /*
 QCC:
-	-
+	- Is it possible to change the basic operators like +,/,-,* to work with Rational (Or any class)?
 DISCO:
 	- We only need to typecast one int into a float for the operation to become a float operation
 */
@@ -78,6 +78,5 @@ public class Rational{
 		Rational e = new Rational(2,0);
 		System.out.println(e);
 		System.out.println(e.floatValue());
-		System.out.println(e+b);
 	}
 }
