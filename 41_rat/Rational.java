@@ -78,5 +78,6 @@ public class Rational{
 		Rational e = new Rational(2,0);
 		System.out.println(e);
 		System.out.println(e.floatValue());
+		System.out.println(e+b);
 	}
 }
