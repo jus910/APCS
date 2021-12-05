@@ -1,14 +1,15 @@
 // Team we forgot: Justin Mohabir, Jonathan Song, Kevin Li
 // APCS pd8
-// HW41 -- Be Rational
-// 2021-11-30
-// Time spent: .3 hours
+// HW42 -- Be More Rational
+// 2021-12-5
+// Time spent: 1 hours
 
 /*
 QCC:
 	- Is it possible to change the basic operators like +,/,-,* to work with Rational (Or any class)?
+  - When working with division we always have to account for 0
 DISCO:
-	- We only need to typecast one int into a float for the operation to become a float operation
+	-
 */
 
 
@@ -53,34 +54,78 @@ public class Rational{
 			denominator = denominator*(input.numerator);
 		}
 	}
-	
-	public int gcd_helper(){
-  	  int loop;
-	    if (a<b){
-	      loop=a;
-	    } else {
-	      loop=b;
-	    }
-	    while(((a%loop)!=0)||((b%loop)!=0)){
-	      loop=loop-1;
-	    }
-	    return loop;
-	   }
-	// This is a basic gcd fxn, we will use it for other
-	   
+
 	public int gcd(){
-		return gcd_helper(numerator,denominator);
+    	if (numerator==0){
+        return 0;
+      }
+			int n=Math.abs(numerator);
+			int d=Math.abs(denominator);
+		   while (n!=d){
+		     if (n>d){
+		       n=n-d;
+		     } else {
+		       d=d-n;
+		     }
+		   }
+		   return d;
+	  }
+	// This is a basic gcd fxn, we will use it for other
+
+	public void add(Rational input) {
+
+    this.numerator=(this.numerator * input.denominator) + (input.numerator * this.denominator);
+    // Adds them together
+    this.denominator=this.denominator * input.denominator;
+
 	}
-	
-	public int add(Rational input){
+
+ 	public void subtract(Rational input) {
+
+    this.numerator=(this.numerator * input.denominator) - (input.numerator * this.denominator);
+    this.denominator=this.denominator * input.denominator;
+
 	}
-	
+
+  public void reduce(){
+    if (numerator==0){
+        denominator = 1;
+    } else {
+        int gcd=this.gcd();
+        numerator = numerator / gcd;
+        denominator = denominator / gcd;
+    }
+  }
+  public int compareTo(Rational input){
+    /*
+    Rational ours = new Rational(numerator,denominator);
+    Rational theirs = new Rational(input.numerator,input.denominator);
+    ours.subtract(theirs);
+
+    if (ours.numerator > 0 ) {
+      return 1;
+    }
+    if (ours.numerator < 0 ) {
+      return -1;
+    }
+    else return 0;
+    */
+    if (this.floatValue() > input.floatValue()) {
+      return 1;
+    }
+    else if (this.floatValue() < input.floatValue()) {
+      return -1;
+    }
+    else {
+      return 0;
+    }
+  }
+
 	public static void main(String[] args){
 	/*
 		Rational a = new Rational();
 		System.out.println("a value before: "+a);
 		System.out.println("a float value before: "+a.floatValue() + "\n");
-
 		Rational b = new Rational(2,3);
 		System.out.println("b value before: "+b);
 		System.out.println("b float value before: "+b.floatValue() + "\n");
@@ -88,7 +133,6 @@ public class Rational{
 		System.out.println("b value after: "+b);
 		System.out.println("a value after: "+a + "\n");
 		b.divide(a);
-
 		Rational c = new Rational(3,5);
 		Rational d = new Rational(6,10);
 		System.out.println("c value before: "+c);
@@ -96,12 +140,19 @@ public class Rational{
 		c.divide(d);
 		System.out.println("c value after division: "+c);
 		System.out.println("d value after division: "+d + "\n");
-
 		Rational e = new Rational(2,0);
 		System.out.println(e);
 		System.out.println(e.floatValue());
 	*/
 		Rational b = new Rational(36,24);
+		Rational a = new Rational(36,24);
+		System.out.println(b.compareTo(a));
+		b.subtract(a);
 		System.out.println(b.gcd());
+
+    Rational c = new Rational(-4, 8);
+    System.out.println(c.gcd());
+    c.reduce();
+    System.out.println(c);
 	}
 }
