@@ -6,7 +6,7 @@
 
 /*
 QCC:
-	- Is it possible to change the basic operators like +,/,-,* to work with Rational (Or any class)?
+  - Is it possible to change the basic operators like +,/,-,* to work with Rational (Or any class)?
   - When working with division we always have to account for 0
 DISCO:
 	-
