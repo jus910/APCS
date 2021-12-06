@@ -6,7 +6,7 @@
 
 /*
 QCC:
-  - 
+  -
 DISCO:
 	-
 */
@@ -27,6 +27,7 @@ public class SuperArray
   //default constructor – initializes 10-item array
   public SuperArray()
   {
+    _data = new int[10];
     /* YOUR IMPLEMENTATION HERE */
   }
 
@@ -34,6 +35,20 @@ public class SuperArray
   //output SuperArray in [a,b,c] format
   public String toString()
   {
+    String result = "[";
+    int x = 0;
+
+    if (_data.length==0){
+      return "[]";
+    }
+
+    while (x<_data.length-1){
+      result = result + _data[x] + ", ";
+      x++;
+    }
+    result = result + _data[x] + "]";
+    return result;
+
     /* YOUR IMPLEMENTATION HERE */
   }
 
@@ -48,6 +63,7 @@ public class SuperArray
   //accessor -- return value at specified index
   public int get( int index )
   {
+    return 0;
     /* YOUR IMPLEMENTATION HERE */
   }
 
@@ -56,6 +72,7 @@ public class SuperArray
   //           return old value at index
   public int set( int index, int newVal )
   {
+    return 0;
     /* YOUR IMPLEMENTATION HERE */
   }
 
@@ -63,10 +80,11 @@ public class SuperArray
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
+
       SuperArray curtis = new SuperArray();
       System.out.println( "Printing empty SuperArray curtis..." );
       System.out.println( curtis );
+      /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
       for( int i = 0; i < curtis._data.length; i++ ) {
       curtis.set( i, i * 2 );
       }
