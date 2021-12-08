@@ -1,7 +1,17 @@
-// Clyde "Thluffy" Sinclair
-// APCS1 pd0
+// Team we forgot: Justin Mohabir, Jonathan Song, Kevin Li
+// APCS pd8
 // HW44 -- expanding SuperArray functionality, encapsulation
 // 2021-12-08w
+// Time spent: .5 hours
+
+/*
+QCC:
+  - Is it more time efficient to iterate from left to right or right to left?
+  - Is recursion ever more efficient when using arrays?
+  - Is it a good idea to split arrays into smaller arrays and process them individually? Or is using multiple for loops more efficient?
+DISCO:
+	- If you create an empty superarray, and add a number at an index that isn't 0, then toString() prints out 0 instead of the added number
+*/
 
 /***************************
  * class SuperArray version 2.0
@@ -75,14 +85,27 @@ public class SuperArray
   //adds an item after the last item
   public void add( int newVal )
   {
-    /* YOUR IMPLEMENTATION HERE */
+    _data[_size] = newVal;
+    _size+=1;
+
   }
 
 
   //inserts an item at index
   public void add( int index, int newVal )
   {
-    /* YOUR IMPLEMENTATION HERE */
+    int[] temp_array = new int[_data.length];
+    for(int i=0;i<index; i++){
+      temp_array[i]=_data[i];
+    }
+
+    temp_array[index] = newVal;
+
+    for(int i=index; i<_size+1; i++) {
+      temp_array[i+1] = _data[i];
+    }
+    _data=temp_array;
+    _size++;
   }
 
 
@@ -90,22 +113,30 @@ public class SuperArray
   //shifts elements left to fill in newly-empted slot
   public void remove( int index )
   {
-    /* YOUR IMPLEMENTATION HERE */
+    int[] temp_array = new int[_data.length];
+
+    for(int i=0;i<index; i++){
+      temp_array[i]=_data[i];
+    }
+
+    for(int i=index; i<_size-1; i++) {
+      temp_array[i] = _data[i+1];
+    }
+    _data=temp_array;
+    _size--;
   }
 
 
   //return number of meaningful items in _data
   public int size()
   {
-    /* YOUR IMPLEMENTATION HERE */
+    return _size;
   }
-
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
       SuperArray curtis = new SuperArray();
       System.out.println( "Printing empty SuperArray curtis..." );
       System.out.println( curtis );
@@ -146,6 +177,7 @@ public class SuperArray
       mayfield.add(1,77);
       System.out.println("Printing SuperArray mayfield post-insert...");
       System.out.println(mayfield);
+      /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~*/
   }//end main()
 
