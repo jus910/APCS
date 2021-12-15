@@ -117,6 +117,7 @@ public class GuessNumber
 
       if ((guess > _hi) || (guess < _lo)) {
       	System.out.println("Your guess is out of range");
+          _guessCtr--;
    		}
 
       else if(guess > _target) {
