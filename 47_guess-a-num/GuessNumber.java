@@ -1,8 +1,8 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
-// HW47 -- ?
+// Team we forgot: Justin Mohabir, Jonathan Song, Kevin Li
+// APCS pd8
+// HW47 -- Guess Again
 // 2021-12-15w
-// time spent: _ hrs
+// time spent: 0.3 hrs
 
 /***
  * class GuessNumber -- fun fun fun!
@@ -20,10 +20,13 @@
  ***/
 
 /***
-    DISCO: 
+    DISCO:
     - You can do this: private int _lo, _hi, _guessCtr, _target;
     	- Declare all variables at once
+    - break will break the loop, anywhere, and then continue reading code
+    - return will end the method, and will not read the rest of the code
     QCC:
+    -
  ***/
 import java.util.Scanner;
 
@@ -37,7 +40,7 @@ public class GuessNumber
 
   /*==================================================
     constructor -- initializes a guess-a-number game
-    pre:  
+    pre:
     post: _lo is lower bound, _hi is upper bound,
     _guessCtr is 1, _target is random int on range [_lo,_hi]
     ==================================================*/
@@ -64,21 +67,26 @@ public class GuessNumber
     int guess = sc.nextInt();
 
     //3 cases: we either found it, too hi, too lo
+    if ((guess > _hi) || (guess < _lo)) {
+      System.out.println("Your guess is out of range");
+      playRec();
+      _guessCtr++;
+    }
 
     if(guess == _target) {
-    	System.out.println("pog");
+    	System.out.println("You guessed the number correctly!");
     	System.out.println("You took this many times to guess: " + _guessCtr);
-    	} 
-    	
+    	}
+
     else if(guess > _target) {
     	System.out.println("Too high");
     	_hi=guess-1;
     	_guessCtr++;
     	this.playRec();
-    	} 
-    	
+    	}
+
     else if(guess < _target) {
- 	System.out.println("Too low");
+ 			System.out.println("Too low");
     	_lo=guess+1;
     	_guessCtr++;
     	this.playRec();
@@ -101,9 +109,25 @@ public class GuessNumber
       guess = sc.nextInt();
 
       //3 cases: we either found it, too hi, too lo
+      if(guess == _target) {
+        System.out.println("You guessed the number correctly!");
+    		System.out.println("You took this many times to guess: " + _guessCtr);
+        break;
+      }
 
-      /* YOUR CODE HERE */
+      if ((guess > _hi) || (guess < _lo)) {
+      	System.out.println("Your guess is out of range");
+   		}
 
+      else if(guess > _target) {
+    		System.out.println("Too high");
+    		_hi=guess-1;
+    	}
+
+      else if(guess < _target) {
+ 				System.out.println("Too low");
+    		_lo=guess+1;
+    	}
       _guessCtr++;
     }
   }
@@ -113,9 +137,9 @@ public class GuessNumber
   public void play()
   {
     //use one or the other below:
-    playRec();
-    //playIter();
-    
+    //playRec();
+    playIter();
+
   }
 
 
@@ -127,7 +151,7 @@ public class GuessNumber
     GuessNumber g = new GuessNumber(1,100);
     //start the game
     g.play();
-        /*-----------------------------
+    /*-----------------------------
     -----------------------------*/
   }
 
