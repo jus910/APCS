@@ -1,19 +1,25 @@
 // Team we forgot: Justin Mohabir, Jonathan Song, Kevin Li
 // APCS pd8
-// HW42 -- Be More Rational
-// 2021-12-5
+// HW49 -- Rational Standards Compliance
+// 2021-12-22
 // Time spent: 1 hours
 
 /*
 QCC:
-  - Is it possible to change the basic operators like +,/,-,* to work with Rational (Or any class)?
-  - When working with division we always have to account for 0
+  - We must typecast objects to utilize their methods
 DISCO:
-	-
+	- There is a built in Comparable interface
+	- The four requirements for a .equals() method are
+  	- Reflexive: an objects equals itself
+    - Symmetric: .equals() should return the same value for 2 objects regardless if it's a.equals(b) or b.equals(a)
+    - Transitive: if a.equals(b) and b.equals(c), then a.equals(b);
+    - Consistent: .equals() should not return differen values if the objects are not changed
+	- throw new exception will return an error message, no return statment needed
+  	- It will also stop the code from running at that point
 */
 
 
-public class Rational{
+public class Rational implements Comparable{
 	int numerator;
 	int denominator;
 	public Rational(){
@@ -96,22 +102,10 @@ public class Rational{
         denominator = denominator / gcd;
     }
   }
+// Updated compareTo so only rationals are accepted
   public int compareTo(Object o){
-    /*
-    Rational ours = new Rational(numerator,denominator);
-    Rational theirs = new Rational(input.numerator,input.denominator);
-    ours.subtract(theirs);
-
-    if (ours.numerator > 0 ) {
-      return 1;
-    }
-    if (ours.numerator < 0 ) {
-      return -1;
-    }
-    else return 0;
-    */
     if (o instanceof Rational){
-    	Rational input = (Rational)o; 
+    	Rational input = (Rational)o;
     	if (this.floatValue() > input.floatValue()) {
       		return 1;
     	}
@@ -124,44 +118,37 @@ public class Rational{
     } else{
     	throw new ClassCastException("\ncompareTo() input not a Rational");
     }
-    
+
   }
 
+// Updated equals so only rationals are accepted
+  public boolean equals(Object other){
+			if (other instanceof Rational){
+				return (this.floatValue())==(((Rational)other).floatValue());
+			}
+			else {
+				throw new ClassCastException("\nequals() input not a Rational");
+			}
+		}
+
 	public static void main(String[] args){
-	/*
-		Rational a = new Rational();
-		System.out.println("a value before: "+a);
-		System.out.println("a float value before: "+a.floatValue() + "\n");
-		Rational b = new Rational(2,3);
-		System.out.println("b value before: "+b);
-		System.out.println("b float value before: "+b.floatValue() + "\n");
-		b.multiply(a);
-		System.out.println("b value after: "+b);
-		System.out.println("a value after: "+a + "\n");
-		b.divide(a);
-		Rational c = new Rational(3,5);
-		Rational d = new Rational(6,10);
-		System.out.println("c value before: "+c);
-		System.out.println("d value before: "+d + "\n");
-		c.divide(d);
-		System.out.println("c value after division: "+c);
-		System.out.println("d value after division: "+d + "\n");
-		Rational e = new Rational(2,0);
-		System.out.println(e);
-		System.out.println(e.floatValue());
-		Rational b = new Rational(36,24);
-		Rational a = new Rational(36,24);
-		System.out.println(b.compareTo(a));
-		b.subtract(a);
-		System.out.println(b.gcd());
-    		Rational c = new Rational(-4, 8);
-    		System.out.println(c.gcd());
-    		c.reduce();
-    		System.out.println(c);
-	*/
+    Rational a = new Rational(2,3);
 		Rational b = new Rational(2,3);
 		Rational c = new Rational(3,5);
+    Rational d = new Rational(2,3);
+
+    System.out.println("reflexive test");
+    System.out.println(a.equals(a));
+
+    System.out.println("symmetric test");
+    System.out.println(a.equals(b));
+    System.out.println(b.equals(a));
+
+    System.out.println("different values");
 		System.out.println(b.compareTo(c));
+
+    System.out.println("error test");
 		System.out.println(b.compareTo(1));
+    System.out.println(b.equals(1));
 	}
 }
