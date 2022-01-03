@@ -6,9 +6,12 @@
 
 public class Driver{
     public static void main(String[] args){
-      Rational a = new Rational(2,3);
-		  Rational b = new Rational(2,3);
-		  Rational c = new Rational(3,5);
+	Rational b = new Rational(2,3);
+	Rational c = new Rational(20000001,30000000);
+	System.out.println(b.equals(c));
+	System.out.println(2000001/3000000.0);
+	System.out.println(2/3.0);
+	/*
       Rational d = new Rational(2,3);
 
       System.out.println("reflexive test");
@@ -25,5 +28,6 @@ public class Driver{
       System.out.println("error test");
 		  System.out.println(b.compareTo(1));
       System.out.println(b.equals(1));
+      */
     }
 }
