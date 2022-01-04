@@ -8,18 +8,18 @@
  *   class SelectionSort -- implements SelectionSort algorithm
  *
  * ALGO:
- * 
+ *
  * DISCO
  *
  * QCC
  * q0: How many passes to sort n elements?
- * a0: 
+ * a0:
  * q1: What do you know after pass p?
- * a1: 
+ * a1:
  * q2: How do you know if sorted?
  * a2:
  * q3: What does a pass boil down to?
- * a3: 
+ * a3:
  ******************************/
 
 
@@ -71,20 +71,20 @@ public class SelectionSort
     for(int i=data.size()-1;i>0;i--) {
       System.out.println( "\nbegin pass " + (data.size()-i) );//diag
       maxPos=i;
-      
-      for(int n=data.size()-i;n>0;n-- ) {
+
+      for(int n=i;n>=0;n-- ) {
         System.out.println( "maxPos: " + maxPos );//diag
         System.out.println( data );//diag
         if (data.get(maxPos).compareTo(data.get(n)) == -1){
         	maxPos=n;
         }
-        
+
       }
-      
+
       currentVal=data.get(i);
       data.set(i,data.get(maxPos));
       data.set(maxPos,currentVal);
-      
+
       System.out.println( "after swap: " +  data );//diag
     }
   }//end selectionSort
@@ -112,7 +112,7 @@ public class SelectionSort
   public static void main( String [] args )
   {
 
-    
+
     ArrayList glen = new ArrayList<Integer>();
     glen.add(7);
     glen.add(1);
