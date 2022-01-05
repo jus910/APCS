@@ -1,13 +1,15 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+// Team we forgot: Justin Mohabir, Jonathan Song, Kevin Li
+// APCS pd8
 // HW52 -- implementing selection sort
 // 2022-01-05w
-// time spent:  hrs
+// time spent: 0.5 hrs
 
 /******************************
  *   class SelectionSort -- implements SelectionSort algorithm
  *
  * ALGO:
+ * 1. Start at the last index
+ * 2. Iterate right to left looking for the biggest value to the left of the
  *
  * DISCO
  *
@@ -69,12 +71,12 @@ public class SelectionSort
     Comparable currentVal;
 
     for(int i=data.size()-1;i>0;i--) {
-      System.out.println( "\nbegin pass " + (data.size()-i) );//diag
+      // System.out.println( "\nbegin pass " + (data.size()-i) );//diag
       maxPos=i;
 
       for(int n=i;n>=0;n-- ) {
-        System.out.println( "maxPos: " + maxPos );//diag
-        System.out.println( data );//diag
+        // System.out.println( "maxPos: " + maxPos );//diag
+        // System.out.println( data );//diag
         if (data.get(maxPos).compareTo(data.get(n)) == -1){
         	maxPos=n;
         }
@@ -112,25 +114,26 @@ public class SelectionSort
   public static void main( String [] args )
   {
 
+      /*===============for VOID methods=============
 
-    ArrayList glen = new ArrayList<Integer>();
-    glen.add(7);
-    glen.add(1);
-    glen.add(5);
-    glen.add(12);
-    glen.add(3);
-    System.out.println( "ArrayList glen before sorting:\n" + glen );
-    selectionSortV(glen);
-    System.out.println( "ArrayList glen after sorting:\n" + glen );
+      ArrayList glen = new ArrayList<Integer>();
+      glen.add(7);
+      glen.add(1);
+      glen.add(5);
+      glen.add(12);
+      glen.add(3);
+      System.out.println( "ArrayList glen before sorting:\n" + glen );
+      selectionSortV(glen);
+      System.out.println( "ArrayList glen after sorting:\n" + glen );
 
-    ArrayList coco = populate( 10, 1, 1000 );
-    System.out.println( "ArrayList coco before sorting:\n" + coco );
-    selectionSortV(coco);
-    System.out.println( "ArrayList coco after sorting:\n" + coco );
-    /*===============for VOID methods=============
+      ArrayList coco = populate( 10, 1, 1000 );
+      System.out.println( "ArrayList coco before sorting:\n" + coco );
+      selectionSortV(coco);
+      System.out.println( "ArrayList coco after sorting:\n" + coco );
+
       ============================================*/
 
-    /*==========for AL-returning methods==========
+
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
       glen.add(1);
@@ -150,6 +153,7 @@ public class SelectionSort
       + cocoSorted );
       System.out.println( "ArrayList coco after sorting:\n" + coco );
       System.out.println( coco );
+      /*==========for AL-returning methods==========
       ============================================*/
 
   }//end main

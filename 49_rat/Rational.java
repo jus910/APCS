@@ -1,154 +1,166 @@
 // Team we forgot: Justin Mohabir, Jonathan Song, Kevin Li
 // APCS pd8
-// HW49 -- Rational Standards Compliance
-// 2021-12-22
-// Time spent: 1 hours
+// HW52 -- implementing selection sort
+// 2022-01-05w
+// time spent: 0.5 hrs
 
-/*
-QCC:
-  - We must typecast objects to utilize their methods
-DISCO:
-	- There is a built in Comparable interface
-	- The four requirements for a .equals() method are
-  	- Reflexive: an objects equals itself
-    - Symmetric: .equals() should return the same value for 2 objects regardless if it's a.equals(b) or b.equals(a)
-    - Transitive: if a.equals(b) and b.equals(c), then a.equals(b);
-    - Consistent: .equals() should not return differen values if the objects are not changed
-	- throw new exception will return an error message, no return statment needed
-  	- It will also stop the code from running at that point
-*/
+/******************************
+ *   class SelectionSort -- implements SelectionSort algorithm
+ *
+ * ALGO:
+ * 1. Start at the last index
+ * 2. Iterate right to left looking for the biggest value to the left of the current index
+ * 3. Swap the selected value with the value at the current index. If no larger value is found, then the current value swaps with itself and is unchanged
+ * 4. Repeat steps 2 and 3 for each index for size-1 passes
+ *
+ * DISCO
+ * 	-
+ *
+ * QCC
+ * q0: How many passes to sort n elements?
+ * a0: n-1 passes
+ * q1: What do you know after pass p?
+ * a1: There are p elements in the right place
+ * q2: How do you know if sorted?
+ * a2: We do n-1 passes, so we know n-1 elements are in the right place. The last element then must also be in the right place because there are no other options
+ * q3: What does a pass boil down to?
+ * a3: One loop through the array starting from the initial value
+ *
+ * 	- Is selection sort faster than bubble sort? Both require the same number of passes to sort everything, and both seem to use the same amount of iteration
+ ******************************/
 
 
-public class Rational implements Comparable{
-	int numerator;
-	int denominator;
-	public Rational(){
-		numerator=0;
-		denominator=1;
-	}
-	public Rational(int n, int d){
-		if (d==0){
-			System.out.println("Error: Denominator is 0, value set to 0");
-			numerator=0;
-			denominator=1;
-		} else{
-			numerator=n;
-			denominator=d;
-		}
-	}
+import java.util.ArrayList;
 
-	public String toString(){
-		String output;
-		output = numerator+"/"+denominator;
-		return output;
-	}
+public class SelectionSort
+{
 
-	public float floatValue(){
-		return ((float) numerator)/(denominator);
-	}
+  //~~~~~~~~~~~~~~~~~~~ HELPER METHODS ~~~~~~~~~~~~~~~~~~~
+  //precond: lo < hi && size > 0
+  //postcond: returns an ArrayList of random integers
+  //          from lo to hi, inclusive
+  public static ArrayList populate( int size, int lo, int hi )
+  {
+    ArrayList<Integer> retAL = new ArrayList<Integer>();
+    while( size > 0 ) {
+      //     offset + rand int on interval [lo,hi]
+      retAL.add( lo + (int)( (hi-lo+1) * Math.random() ) );
+      size--;
+    }
+    return retAL;
+  }
 
-	public void multiply(Rational input){
-		numerator = numerator*(input.numerator);
-		denominator = denominator*(input.denominator);
-	}
+  //randomly rearrange elements of an ArrayList
+  public static void shuffle( ArrayList al )
+  {
+    int randomIndex;
+    for( int i = al.size()-1; i > 0; i-- ) {
+      //pick an index at random
+      randomIndex = (int)( (i+1) * Math.random() );
+      //swap the values at position i and randomIndex
+      al.set( i, al.set( randomIndex, al.get(i) ) );
+    }
+  }
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-	public void divide(Rational input){
-		if (input.numerator==0){
-			System.out.println("Error: Cannot Divide, Input Numerator is 0");
-		} else{
-			numerator = numerator*(input.denominator);
-			denominator = denominator*(input.numerator);
-		}
-	}
 
-	public int gcd(){
-    	if (numerator==0){
-        return 0;
+  // VOID version of SelectionSort
+  // Rearranges elements of input ArrayList
+  // postcondition: data's elements sorted in ascending order
+  public static void selectionSortV( ArrayList<Comparable> data )
+  {
+    //note: this version places greatest value at "rightmost" end
+
+    //maxPos will point to position of SELECTION (greatest value)
+    int maxPos;
+    Comparable currentVal;
+
+    for(int i=data.size()-1;i>0;i--) {
+      System.out.println( "\nbegin pass " + (data.size()-i) );//diag
+      maxPos=i;
+
+      for(int n=i;n>=0;n-- ) {
+        System.out.println( "maxPos: " + maxPos );//diag
+        System.out.println( data );//diag
+        if (data.get(maxPos).compareTo(data.get(n)) == -1){
+        	maxPos=n;
+        }
+
       }
-			int n=Math.abs(numerator);
-			int d=Math.abs(denominator);
-		   while (n!=d){
-		     if (n>d){
-		       n=n-d;
-		     } else {
-		       d=d-n;
-		     }
-		   }
-		   return d;
-	  }
-	// This is a basic gcd fxn, we will use it for other
 
-	public void add(Rational input) {
+      currentVal=data.get(i);
+      data.set(i,data.get(maxPos));
+      data.set(maxPos,currentVal);
 
-    this.numerator=(this.numerator * input.denominator) + (input.numerator * this.denominator);
-    // Adds them together
-    this.denominator=this.denominator * input.denominator;
-
-	}
-
- 	public void subtract(Rational input) {
-
-    this.numerator=(this.numerator * input.denominator) - (input.numerator * this.denominator);
-    this.denominator=this.denominator * input.denominator;
-
-	}
-
-  public void reduce(){
-    if (numerator==0){
-        denominator = 1;
-    } else {
-        int gcd=this.gcd();
-        numerator = numerator / gcd;
-        denominator = denominator / gcd;
+      System.out.println( "after swap: " +  data );//diag
     }
-  }
-// Updated compareTo so only rationals are accepted
-  public int compareTo(Object o){
-    if (o instanceof Rational){
-    	Rational input = (Rational)o;
-    	if (this.floatValue() > input.floatValue()) {
-      		return 1;
-    	}
-    	else if (this.floatValue() < input.floatValue()) {
-      		return -1;
-   	 }
-   	 else {
-     		 return 0;
-    	}
-    } else{
-    	throw new ClassCastException("\ncompareTo() input not a Rational");
-    }
+  }//end selectionSort
 
-  }
 
-// Updated equals so only rationals are accepted
-  public boolean equals(Object other){
-			if (other instanceof Rational){
-				return (this.floatValue())==(((Rational)other).floatValue());
-			}
-			else {
-				throw new ClassCastException("\nequals() input not a Rational");
-			}
-		}
+  // ArrayList-returning selectionSort
+  // postcondition: order of input ArrayList's elements unchanged
+  //                Returns sorted copy of input ArrayList.
+  public static ArrayList<Comparable> selectionSort( ArrayList<Comparable> input )
+  {
+    //declare and initialize empty ArrayList for copying
+    ArrayList<Comparable> data = new ArrayList<Comparable>();
 
-	public static void main(String[] args){
-    Rational a = new Rational(2,3);
-		Rational b = new Rational(2,3);
-		Rational c = new Rational(3,5);
-    Rational d = new Rational(2,3);
+    //copy input ArrayList into working ArrayList
+    for( Comparable o : input )
+      data.add( o );
 
-    System.out.println("reflexive test");
-    System.out.println(a.equals(a));
+    //sort working ArrayList
+    selectionSortV( data );
 
-    System.out.println("symmetric test");
-    System.out.println(a.equals(b));
-    System.out.println(b.equals(a));
+    return data;
+  }//end selectionSort
 
-    System.out.println("different values");
-		System.out.println(b.compareTo(c));
 
-    System.out.println("error test");
-		System.out.println(b.compareTo(1));
-    System.out.println(b.equals(1));
-	}
-}
+  public static void main( String [] args )
+  {
+
+      /*===============for VOID methods=============
+
+    ArrayList glen = new ArrayList<Integer>();
+    glen.add(7);
+    glen.add(1);
+    glen.add(5);
+    glen.add(12);
+    glen.add(3);
+    System.out.println( "ArrayList glen before sorting:\n" + glen );
+    selectionSortV(glen);
+    System.out.println( "ArrayList glen after sorting:\n" + glen );
+
+    ArrayList coco = populate( 10, 1, 1000 );
+    System.out.println( "ArrayList coco before sorting:\n" + coco );
+    selectionSortV(coco);
+    System.out.println( "ArrayList coco after sorting:\n" + coco );
+
+      ============================================*/
+
+
+      ArrayList glen = new ArrayList<Integer>();
+      glen.add(7);
+      glen.add(1);
+      glen.add(5);
+      glen.add(12);
+      glen.add(3);
+      System.out.println( "ArrayList glen before sorting:\n" + glen );
+      ArrayList glenSorted = selectionSort( glen );
+      System.out.println( "sorted version of ArrayList glen:\n"
+      + glenSorted );
+      System.out.println( "ArrayList glen after sorting:\n" + glen );
+
+      ArrayList coco = populate( 10, 1, 1000 );
+      System.out.println( "ArrayList coco before sorting:\n" + coco );
+      ArrayList cocoSorted = selectionSort( coco );
+      System.out.println( "sorted version of ArrayList coco:\n"
+      + cocoSorted );
+      System.out.println( "ArrayList coco after sorting:\n" + coco );
+      System.out.println( coco );
+      /*==========for AL-returning methods==========
+      ============================================*/
+
+  }//end main
+
+}//end class SelectionSort
