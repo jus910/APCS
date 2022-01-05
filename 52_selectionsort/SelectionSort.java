@@ -9,19 +9,23 @@
  *
  * ALGO:
  * 1. Start at the last index
- * 2. Iterate right to left looking for the biggest value to the left of the
+ * 2. Iterate right to left looking for the biggest value to the left of the current index
+ * 3. Swap the selected value with the value at the current index. If no larger value is found, then the current value swaps with itself and is unchanged
+ * 4. Repeat steps 2 and 3 for each index for size-1 passes
  *
  * DISCO
  *
  * QCC
  * q0: How many passes to sort n elements?
- * a0:
+ * a0: n-1 passes
  * q1: What do you know after pass p?
- * a1:
+ * a1: There are p elements in the right place
  * q2: How do you know if sorted?
- * a2:
+ * a2: We do n-1 passes, so we know n-1 elements are in the right place. The last element then must also be in the right place because there are no other options
  * q3: What does a pass boil down to?
- * a3:
+ * a3: One loop through the array starting from the initial value
+ * 
+ * 	- Is selection sort faster than bubble sort? Both require the same number of passes to sort everything, and both seem to use the same amount of iteration
  ******************************/
 
 
@@ -71,12 +75,12 @@ public class SelectionSort
     Comparable currentVal;
 
     for(int i=data.size()-1;i>0;i--) {
-      // System.out.println( "\nbegin pass " + (data.size()-i) );//diag
+      System.out.println( "\nbegin pass " + (data.size()-i) );//diag
       maxPos=i;
 
       for(int n=i;n>=0;n-- ) {
-        // System.out.println( "maxPos: " + maxPos );//diag
-        // System.out.println( data );//diag
+        System.out.println( "maxPos: " + maxPos );//diag
+        System.out.println( data );//diag
         if (data.get(maxPos).compareTo(data.get(n)) == -1){
         	maxPos=n;
         }
@@ -116,20 +120,20 @@ public class SelectionSort
 
       /*===============for VOID methods=============
 
-      ArrayList glen = new ArrayList<Integer>();
-      glen.add(7);
-      glen.add(1);
-      glen.add(5);
-      glen.add(12);
-      glen.add(3);
-      System.out.println( "ArrayList glen before sorting:\n" + glen );
-      selectionSortV(glen);
-      System.out.println( "ArrayList glen after sorting:\n" + glen );
+    ArrayList glen = new ArrayList<Integer>();
+    glen.add(7);
+    glen.add(1);
+    glen.add(5);
+    glen.add(12);
+    glen.add(3);
+    System.out.println( "ArrayList glen before sorting:\n" + glen );
+    selectionSortV(glen);
+    System.out.println( "ArrayList glen after sorting:\n" + glen );
 
-      ArrayList coco = populate( 10, 1, 1000 );
-      System.out.println( "ArrayList coco before sorting:\n" + coco );
-      selectionSortV(coco);
-      System.out.println( "ArrayList coco after sorting:\n" + coco );
+    ArrayList coco = populate( 10, 1, 1000 );
+    System.out.println( "ArrayList coco before sorting:\n" + coco );
+    selectionSortV(coco);
+    System.out.println( "ArrayList coco after sorting:\n" + coco );
 
       ============================================*/
 
