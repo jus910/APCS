@@ -2,13 +2,19 @@
 // APCS pd8
 // HW53 -- implementing insertion sort
 // 2022-01-06r
-// time spent:  hrs
+// time spent: 0.5 hrs
 
 /******************************
  * class InsertionSort -- implements InsertionSort algorithm
  *
  * ALGO:
- * 
+ * 1. Partition the list into sorted and undorted sections, with the partition starting at index
+ * 2. Create a variable i with the same value as the partition
+ * 3. If the value at i is less than the value at i-1, then swap
+ * 4. Decrement i by 1, and repeat step 2 until the value is sorted relative to the section to the left of the partition
+ * 5. Increment partition by 1
+ * 6. Repeat steps 2 - 5 until i is equal to the size-1
+ *
  * DISCO
  *
  * QCC
@@ -21,7 +27,7 @@
  * q3: What constitues a pass?
  * a3: 1 iteration through the outer loop
  * q4: What must you track?
- * a4: The 
+ * a4: The location of the partition in the array
  ******************************/
 
 
@@ -79,7 +85,7 @@ public class InsertionSort
           currentVal=data.get(i);
           data.set(i,data.get(i-1));
           data.set(i-1,currentVal);
-          
+
         }
         else
           break;
@@ -111,7 +117,7 @@ public class InsertionSort
 
   public static void main( String [] args )
   {
-    
+
       System.out.println("\n*** Testing sort-in-place (void) version... *** ");
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
@@ -143,7 +149,6 @@ public class InsertionSort
       System.out.println( "\nsorted version of ArrayList glen:\n"
       + glenSorted );
       System.out.println( "\nArrayList glen after sorting:\n" + glen );
-
       ArrayList coco = populate( 10, 1, 1000 );
       System.out.println( "\nArrayList coco before sorting:\n" + coco );
       ArrayList cocoSorted = insertionSort( coco );
