@@ -66,11 +66,11 @@ public class StatPrinter
     int length = max(data) + 1;
     int ctr;
     for (int i = 0; i < length; i++){
-      ctr = 0;
+      ctr = 0; // ctr is initially at 0
       for (int j = 0; j < data.size(); j++ ){
-        if (data.get(j) == i){ ctr++; }
+        if (data.get(j) == i){ ctr++; } // if value i is found, increase ctr by 1
       }
-      _frequency.add(ctr);
+      _frequency.add(ctr); // add ctr to _frequncy (at index i of frequency)
     }
     // System.out.println(_frequency); // diag
   }
@@ -137,14 +137,15 @@ public class StatPrinter
 
   public void printHistogram( int longestBar )
   {
+    // ratio = number of stars per frequncy of 1
     double ratio = ((double)longestBar) / max(_frequency);
     int numStars = 0;
     String stars;
     for (int i = 0; i < _frequency.size(); i++){
       stars = "";
-      numStars = Math.round(Math.round(ratio * _frequency.get(i)));
+      numStars = Math.round(Math.round(ratio * _frequency.get(i))); // rounds double to int
       for (int j = 0; j < numStars; j++){
-        stars += "*";
+        stars += "*"; // accumulates number of stars for each index
       }
       System.out.println(i + ": " + stars);
     }
