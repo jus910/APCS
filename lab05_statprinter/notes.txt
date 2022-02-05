@@ -1,0 +1,29 @@
+Team Team: Brian Li, Justin Mohabir, Neil Lin; Ducks: Robert, Hans, Hatch
+APCS pd 7
+L05 -- pulling it together
+2022-02-03r
+time spent: 1 hrs
+
+
+DISCO
+------------------------------------------------
+* add "= new ArrayList()" to initialize line to make it work
+* buhcahn
+================================================
+
+
+QCC
+------------------------------------------------
+* is there a better way of determining how many stars a corresponding value has?
+================================================
+
+
+MISC
+------------------------------------------------
+* plan
+  - max - find largest value in ArrayList with LOOOP
+  - constructor
+  - isLocalMode compare left right indices, must be greater than 0
+  - getLocalModes uses isLocalMode to get local modes
+  - histogram dots with ratio
+================================================
