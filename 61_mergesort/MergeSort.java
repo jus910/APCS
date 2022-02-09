@@ -67,7 +67,7 @@ public class MergeSort
   {
     int[][] arrays = new int[arr.length-1][1];
     int[] out = new int[0];
-    // This does not really keep on splitting the array in half, but it gets the job done
+    // This turns every element into a list
     for(int i = 0; i<arr.length-1; i++){
       arrays[i][0] = arr[i];
     }
