@@ -1,0 +1,18 @@
+Team Team: Brian Li, Justin Mohabir, Neil Lin; Ducks: Robert, Hans, Hatch
+APCS pd07
+HW60 -- A Termite is-a Turtle, a Thinker is-a Turtle
+2022-02-07
+time spent: 0.5 hrs
+
+DISCO:
+- an array is known to be sorted if there is only one element in the array.
+
+QCC:
+- What makes merge sort more efficient compared to other sorts?
+
+THINKER FIRMWARE:
+- Only thinkeren with cards are allowed to speak. They may only speak to <3 other thinkeren.
+- When a thinker has >1 card, split the deck in half and give both to two other thinkeren. Then hold up your hands!
+- If a thinker's hands are empty, receive a split deck from another thinker.
+- If a thinker has 1 card, it is declared sorted. Return the card to the thinker who originally gave it to you.
+- Upon receiving back 2 decks of cards, look at the first card of each deck and sort them accordingly into one new deck. Repeat until the new deck is sorted.
