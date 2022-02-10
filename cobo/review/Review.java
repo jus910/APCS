@@ -162,4 +162,11 @@ public class Review {
       return randomNegativeAdj();
     }
   }
+  
+  public static String totalSentiment(String filename){
+  	return textToString(filename);
+  }
+  public static void main(String[] args){
+  	System.out.println(totalSentiment("SimpleReview.txt"));
+  }
 }
