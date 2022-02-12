@@ -1,0 +1,111 @@
+// Team Team: Brian Li, Justin Mohabir, Neil Lin; Ducks: Robert, Hans, Hatch
+// APCS pd07
+// L06 -- Read/Review/Expand
+// 2022-02-11
+// time spent: 1.3 hours
+
+DISCO:
+- You can process the data within a .txt file with the class java.io.File.
+- You can use a HashMap to serve the purpose of a dictionary.
+
+QCC:
+- Is there much of a difference between a hashmap and two arrays (one array holds the data, the other holds its corresponding value)?
+
+Activity 1
+1a. public static double sentimentVal( String word )
+1b. It requires a String parameter. If another type of parameter is passed, there is an error.
+1c. It returns a double.
+
+2. method call                return value
+   sentimentVal("poopy")      0.0
+   sentimentVal("abandoned")  -0.09
+   sentimentVal("hello")      0.75
+   sentimentVal("later")      0.16
+
+3a. It would compile because num is a double and the return type of sentimentVal() is also a double.
+3b. It would not compile because word is a String and the return type is a double.
+3c. It would not compile because sentimentVal() does not accept more than one argument.
+
+Activity 2
+4. totalSentiment() iterates through each word in the String created by the file passed in the argument and accumulates the net sentiment value of all the words in the String.
+
+5a. The ratings make sense because the reviews that generally are read as negative have a corresponding low star rating.
+5b. It could account for more vocabulary that is not already present in cleanSentiment.csv and could account for phrases that could have a different sentiment value when grouped together than individually.
+
+6. It is impossible to get a rating of 5 stars, because any value with a totalSentiment greater than 15 only gives 4 stars. If the totalSentiment is 20, it is still 4 stars. It can be fixed by changing the return values, so the lowest rating is 1 star, and the highest rating is 5 stars.
+
+Activity 3
+3. indexOf returns the index of the earliest occurrence of the String in the method's argument, or -1 if it is not found. substring returns a portion of a larger String, based on its 2 int arguments, which represent the start (inclusive) index and end (exclusive) index. One argument implies the end of the substring is the end of the String. indexOf can be used within substring to store the section of a String after the occurrence of the argument passed in indexOf, and also the section of the String before the occurrence of the phrase in indexOf. However, it is typically necessary to add 1 to the position of the space when copying the remainder of the String because the start index in substring is inclusive, and we don't want to duplicate a character so that it's in both parts of the String.
+
+5. Static methods do not require the instantiation of an object to be called, while a non-static method does.
+
+6. It could intentionally replace adjectives with negative or positive adjectives only to change the sentiment of the review.
+
+Activity 4
+1. To reviewbomb competitors and drive them out of business.
+
+2. When you know your product or service isn't very good but are willing to take unethical routes to convince potential, unfortunate customers to utilize your business.
+
+3. while (phrase.length() > 0 && " " present){
+     if (* present in next word){
+       change word to positive or negative, depending on sentiment value of original word
+     }
+     add(nextWord) to new phrase
+     remove nextWord from original phrase
+   }
+
+5. It removes the first character from oneWord.
+
+6. The word cannot be recognized and a sentimentValue cannot be found for it if there is existing punctuation.
+
+7. We can alter more than just adjectives to create a larger sense of a stronger review.
+
+Activity 5
+1. We like communicating in code.
+
+2. We planned out how to reverse a word, and then applied that to larger phrases. We then repeated this process for ROT13.
+
+3. public static String reverseWord(String word)
+   We chose the parameter String word because we wanted to reverse the characters of a word. We made it static because this is a basic method that shouldn't require the instantiation of an object to be called.
+
+4. public static String reverso(String phrase){
+     String reversedPhrase = "";
+     String nextWord = "";
+     phrase += " ";
+     while(phrase.length() > 0 && phrase.indexOf(" ") > -1){
+       nextWord = phrase.substring(0, phrase.indexOf(" "));
+       reversedPhrase += reverseWord(nextWord) + " ";
+       phrase = phrase.substring(phrase.indexOf(" ") + 1);
+     }
+     return reversedPhrase;
+   }
+   phrase.length() returns the total number of indices in phrase.
+   phrase.indexOf(" ") returns the index of the earliest occurence of a space character.
+   phrase.substring() returns a smaller string. The part is either before or after the occurrence of a space character.
+
+5. while(phrase.length() > 0 && phrase.indexOf(" ") > -1){
+     // code
+   }
+
+   An equivalent code segment is:
+
+   while(phrase.length() > 0){
+     if (phrase.indexOf(" ") == -1){
+       break;
+     }
+     // code
+   }
+
+6. while(phrase.length() > 0 && phrase.indexOf(" ") > -1){
+     // code
+   }
+
+   The loop checks if a String has at least one character and a space is still present in the String.
+   An equivalent code segment is:
+
+   for(int i = 0; i < phrase.length(); i++){
+     if (phrase.indexOf(" ") > -1){
+       // code
+     }
+   }
+   Though it is inefficient because of how many times it is run (due to i incrementing by 1).
