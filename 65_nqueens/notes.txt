@@ -1,0 +1,13 @@
+Team Team: Brian Li, Justin Mohabir, Neil Lin; Ducks: Robert, Hans, Hatch
+APCS pd07
+HW65 -- Solving nQueens
+2022-02-16
+time spent: 1 hrs
+
+DISCO
+- There is no solution for a 2x2 or 3x3 chess board.
+- When we render a possible branch useless, we can "undo" our last move using removeQueen() and go to the next possibility.
+
+QCC
+- Why is there no solution only for the 2x2 or 3x3 board?
+- How can we display ALL solutions for a given chess board?
