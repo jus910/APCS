@@ -1,0 +1,23 @@
+TNPG: JLN | Nakib Abedin, Justin Mohabir, Lior Polischouk
+APCS pd07
+HW69 – Making Sense
+2022-03-03r
+Time Spent: .8 hr
+
+q0: From any starting position, an open tour can't always be found. In a 5x5 grid, with a starting position of 
+    [0][1], no solution can be found, and therefore no tour (open or closed) can be found.
+
+q1: From any starting position, a closed tour can't always be found. In a 5x5 grid, with a starting position of 
+    [0][1], no solution can be found, and therefore no tour (open or closed) can be found.
+
+q2: Each time n increases by 1, the amount of squares on the board increases by 2n-1. With each extra square 
+    on the board, the maximum execution time increases exponentially. Due to this, as n increases the average 
+    execution time increases significantly (ex. 3.047s average time for 5x5 grid, and 99.812s for 6x6 grid)
+
+q3: Could be optimized by targeting the corners first, since they have the least viable knights moves.
+
+Cleanest algo in "2D" style: 
+-From starting position, move up/right/down/left
+-If movement not possible, try next move
+-If no movements possible, go back to last movement and try next move
+-If movement goes to exit, finish.
