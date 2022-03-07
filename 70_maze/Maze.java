@@ -1,8 +1,8 @@
-// Clyde Sinclair
-// APCS pd0
-// HW69 -- maze solving (blind, depth-first)
+// JLN| Nakib Abedin + Lior Polischouk + Justin Mohabir
+// APCS pd07
+// HW70 -- Solving Mazes
 // 2022-03-03r
-// time spent:  hrs
+// time spent: 0.5  hrs
 
 /***
  * SKEELTON for
@@ -16,15 +16,16 @@
  *
  * ALGORITHM for finding exit from starting position:
  *  Cleanest algo in "2D" style:
- * -From starting position, move up/right/down/left
+  -From starting position, move up/right/down/left
   -If movement not possible, try next move
   -If no movements possible, go back to last movement and try next move
   -If movement goes to exit, finish.
-
  *
  * DISCO
  *
+ *
  * QCC
+ *  1) Could we have solved this without adding the third base case?
  *
  ***/
 
