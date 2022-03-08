@@ -1,0 +1,35 @@
+// Team Team: Brian Li, Justin Mohabir, Neil Lin; Ducks: Robert, Hans, Hatch
+// APCS pd7
+// HW71 -- Reading for intent, tracing for VICTORY
+// 2022-03-07m
+// time spent: 0.9 hrs
+
+* DISCO
+* - Values outside of the bounds (a and b) aren't checked for a potential swap
+*
+* QCC
+* - Why return a value for mysterion()?
+*
+* q0: What does it do?
+* a0: Partitions an int array into two subarrays.
+*     Elements to the left of splitIndex are less than splitValue.
+*     Elements to the right of splitIndex are greater than splitValue.
+*     Adjusts the splitValue to the index that satisfies the above.
+*
+* q1: O(?)
+* a1: O(n) (assuming loBound and hiBound are 0 and n?)
+
+/**
+ * int mysterion(int[],int,int,int)
+ * Partitions an int array into two subarrays.
+ * Elements to the left of splitIndex are less than splitValue.
+ * Elements to the right of splitIndex are greater than splitValue.
+ * Adjusts the splitValue to the index that satisfies the above.
+ *
+ * @param arr
+ * @param a = loBound, beginning bound to consider partitioning
+ * @param b = hiBound, end bound to consider partitioning
+ * @param c = splitIndex, index of the val that all elements in bounds are placed relative to
+ * @return int = # of elements before splitIndex
+ *
+ */
