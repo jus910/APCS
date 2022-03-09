@@ -1,4 +1,4 @@
-// JLN| Anthony Sun, Jomin Zhang, Justin Mohabir
+// Team Anthing| Anthony Sun, Jomin Zhang, Justin Mohabir
 // APCS pd07
 // HW72 -- So So Fast
 // 2022-03-08r
