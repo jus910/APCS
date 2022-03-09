@@ -7,7 +7,7 @@
 Algo; Partition the list y times and return the yth Value
 BEST CASE SCENARIO: The list is sorted in descending order. The run time is O(n^2) because it must partition n times, and the partition is O(n)
 WORST CASE SCENARIO: The list is sorted in ascending order. The run time is O(n^2) because it must partition n times, and the partition is O(n)
-Disco: If you partition the same list for long enough it becomes sorted
+Disco: If you partition the same list for long enough at the final value it becomes sorted
 QCC: 
   Is there a more efficient way?
   How do we address multiple variables when it comes to time complexity?
