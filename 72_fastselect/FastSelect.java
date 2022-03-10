@@ -77,11 +77,11 @@ public class FastSelect{
     // best case with y at the upper bound
     int[] arr2 = {0,1,2,3,4};
     printArr(arr2);
-    System.out.println(fastSelect(arr1,4));
+    System.out.println(fastSelect(arr2,4));
 
     // worst case with y at the upper bound
     int[] arr3 = {4,3,2,1,0};
     printArr(arr3);
-    System.out.println(fastSelect(arr1,4));
+    System.out.println(fastSelect(arr3,4));
   }
 }
