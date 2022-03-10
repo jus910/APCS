@@ -2,7 +2,7 @@
 // APCS pd07
 // HW72 -- So So Fast
 // 2022-03-08r
-// time spent: 0.5  hrs
+// time spent: 0.5  hr
 /***
 Algo; Partition the list y times and return the yth Value
 BEST CASE SCENARIO: The list is sorted in descending order. The run time is O(n^2) because it must partition n times, and the partition is O(n)
