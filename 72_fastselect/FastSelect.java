@@ -2,7 +2,7 @@
 // APCS pd07
 // HW72 -- So So Fast
 // 2022-03-08r
-// time spent: 0.5  hr
+// time spent: 0.5  hrs
 /***
 Algo; Partition the list y times and return the yth Value
 BEST CASE SCENARIO: The list is sorted in descending order. The run time is O(n^2) because it must partition n times, and the partition is O(n)
@@ -77,11 +77,11 @@ public class FastSelect{
     // best case with y at the upper bound
     int[] arr2 = {0,1,2,3,4};
     printArr(arr2);
-    System.out.println(fastSelect(arr2,4));
+    System.out.println(fastSelect(arr1,4));
 
     // worst case with y at the upper bound
     int[] arr3 = {4,3,2,1,0};
     printArr(arr3);
-    System.out.println(fastSelect(arr3,4));
+    System.out.println(fastSelect(arr1,4));
   }
 }
