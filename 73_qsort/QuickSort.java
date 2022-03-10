@@ -1,8 +1,8 @@
-//Clyde Sinclair
-//APCS pd0
+// Watermelon: Justin Mohabir, Jomin Zhang, Anthony Sun
+//APCS pd7
 //HW72 -- QuickSort
 //2022-03-09w
-//time spent: _h
+//time spent: 1h + class time
 
 /***
  * class QuickSort
@@ -10,13 +10,20 @@
  *
  * 1. Summary of QuickSort algorithm:
  * QSort(arr):
+ * select the lowest index in the given range to be the partition value; arranges the rest of the values in the range according to partition rules, such that numbers euqal to or less than the partition are on its left.
+ * Repeat Qsort on the lower portion of the partion and the higher portion of the partition.
  *
  * 2a. Worst pivot choice and associated run time:
- *
+ * lowest/highest value is chosen
+ * O(n^2)
+ * 
  * 2b. Best pivot choice and associated run time:
- *
+ * the partition value is the median of the array
+ * O(n logn)
+ * 
  * 3. Approach to handling duplicate values in array:
- *
+ * Partition swaps if value is equal to partition value.
+ * 
  **/
 
 public class QuickSort
@@ -69,15 +76,18 @@ public class QuickSort
    */
   public static void qsort( int[] d )
   {
-    int pivotIndex = 0; // can be changed to random later
     int low = 0;
-    int high = d.length; // exclusive index
-    qsortHelp(d, low, high, pivotIndex);
+    int high = d.length-1;
+    qsortHelp(d, low, high);
   }
 
-  qsortHelp(int [] d, int low, int high, int pivotIndex) {
-    int partIndex = Partition.partition(d, low, high, pivotIndex)
+  public static void qsortHelp(int[] d, int low, int high) {
 
+    if (low < high) {
+      int part = Partition.partition(d, low, high, low);
+      qsortHelp(d, low, part-1);
+      qsortHelp(d, part+1, high);
+    }
   }
 
 
@@ -87,7 +97,6 @@ public class QuickSort
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y)
     //get-it-up-and-running, static test case:
     int [] arr1 = {7,1,5,12,3};
     System.out.println("\narr1 init'd to: " );
@@ -107,10 +116,8 @@ public class QuickSort
     qsort( arrN );
     System.out.println("arrN after sort: " );
     printArr(arrN);
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
-    /*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y)
     //get-it-up-and-running, static test case w/ dupes:
     int [] arr2 = {7,1,5,12,3,7};
     System.out.println("\narr2 init'd to: " );
@@ -130,8 +137,11 @@ public class QuickSort
     qsort( arrMatey );
     System.out.println("arrMatey after sort: " );
     printArr(arrMatey);
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
   }//end main
 
 }//end class QuickSort
+    /*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
