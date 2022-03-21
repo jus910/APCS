@@ -1,0 +1,73 @@
+﻿TEAM J GANG - Justin Mobahir, Jomin Zhang
+time spent - 2.5 hours
+Activity 2
+1) A deck is made up of cards.
+2) 6 cards
+3)  String[] rank={"A","2","3", "4", "5", "6" , "7" , "8" , "9", "10", "Jack", "Queen", "King"};
+    String[] suit={"hearts","spades","diamonds", "clovers"};
+	int[] val={11,2,3,4,5,6,7,8,9,10,10,10,10};
+4) Yes, since the point values are assigned by "index" and the first element of rank corrseponds with the first element of val. 
+   Otherwise the point values would be assigned to the wrong cards.
+
+Activity 3
+1) public static String flip() {
+    double chances = 0.66;
+    if (Math.random() < chances){
+        return "heads";
+    }
+    else {
+        return "tails";
+    }
+}
+2) public static boolean arePermutations(int[] arr1, int[] arr2){
+    for (int i = 0; i < arr1.length; i++){
+       for (int j = 0; j < arr2.length; j++){
+           if (arr1[i] == arr2[j]){
+              break;
+           }
+           if (j == arr2.length - 1){
+             return false;
+           }
+       }
+    }
+    return true;
+}
+3)0, 1
+
+Activity 6
+1) 5S + 6C or 5C + 6C
+2) Yes, because cards can only be removed in pairs that add up to 11 or in JQK, and so if 3 cards are left they must be the JQK.
+3) No, because the only thing that matters is the rank and each rank only pairs up with another rank (or in the case of the JQK they go together) 
+   and therefore it doesn't matter what order they are removed in. If two pairs are on the board, removing one or the other does not give more or less options.
+
+Activity 7
+1) A deck of cards.
+   Card[] Deck + Cards
+2)  Create a board
+    Create a deck
+    Shuffle the deck
+    Deal cards
+    Look for legal moves
+    If none game is over, if deck is empty game is won, otherwise it is a loss
+3) Yes
+4a) In the constructor and the newGame()
+4b) In the isLegal() and anotherPlayIsPossible()
+4c) 0:0, 1:1, 2:3, 3:6, 4:7
+4d) 
+String retVal = "";
+    for (int i = 0; i < cIndexes.length(); i++) {
+       retVal += cIndexes.get(i) + ", ";
+    }
+    return retVal;
+4e) anotherPlayIsPossible()
+
+Activity 8
+1) All of them use a deck of cards which are made up of the same type of cards. They all use a board. 
+   They have different board sizes and rules.
+2) ElevensBoard inherits from board and uses the board constructor with its own values.
+3) Yes
+
+Activity 9
+1) The functionality of size is the same across all the boards which is to return the size. The actual size of the board is determined by its constructor
+2) The selection and replacement of cards function the same across all the games
+3) Using an interface would still allow for isLegal() and anotherPlayIsPossible() to be called polymorphically.
