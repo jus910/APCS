@@ -1,0 +1,16 @@
+Watermelon: Justin Mohabir, Jomin Zhang, Anthony Sun
+APCS pd7
+HW82: Roll Your Own Iterator
+2022-03-27
+time spent: 0.5hr + class time
+
+Disco:
+ - WU TANG CLAN
+ - The iterator works like a pointer, that points to the next value
+ - With the way we coded it, the pointer _dummy is on the current element
+    - This means that the "next" methods use the current value _dummy is on not the next one
+    - When we tried to use the next value of _dummy in hasNext() the loop would either leave out the last or first element
+
+ QCC:
+ - What is the point of _okToRemove?
+    - Our code could work without using it
