@@ -1,0 +1,8 @@
+Watermelon: Justin, Anthony, Jomin
+
+DISCO:
+- for operations involving indexing or those that assume that the list exists already, we need to check if empty first.
+- it's better to use isEmpty() than checking if a return is null
+
+QCC:
+- can this be implemented with other collections?
