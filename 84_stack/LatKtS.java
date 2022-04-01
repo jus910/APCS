@@ -60,13 +60,13 @@ public class LatKtS
       if (stack.isEmpty() && (charAtIndex.equals("}") || charAtIndex.equals("]") || charAtIndex.equals(")"))) return false;
       if (charAtIndex.equals("[")) stack.push("[");
       if (charAtIndex.equals("]") && stack.peek().equals("[")) stack.pop();
-      
+
       if (charAtIndex.equals("{")) stack.push("{");
       if (charAtIndex.equals("}") && stack.peek().equals("{")) stack.pop();
 
       if (charAtIndex.equals("(")) stack.push("(");
       if (charAtIndex.equals(")") && stack.peek().equals("(")) stack.pop();
-      // System.out.println(charAtIndex+": "+stack);
+      System.out.println(charAtIndex+": "+stack);
 
     }
     return stack.isEmpty();
