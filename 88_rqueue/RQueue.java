@@ -111,7 +111,7 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
   public boolean isEmpty()
   {
     return _front == null;
-  } //O(?)
+  } //O(1)
 
 
   // print each node, separated by spaces
