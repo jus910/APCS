@@ -1,0 +1,52 @@
+Team Melon :: Justin Mohabir, Jomin Zhang
+APCS
+LAB08 -- America's Next Top Data Scientist
+2022-04-05
+time spent: 2 hours
+
+DISCO:
+ - DataSource can make a data source readable to java
+
+QCC
+
+Questions:
+Activity 1
+1. Youtube/Piazza/Github
+2. Youtube tracks types of browsers we use, purchase activity, and videos you have watched
+3. Delimited means having fixed boundaries or limits. Data files are delimited because they must separate based on columns to differentiate the types of data. They may also use comma separated files to delimit the data into readable chunks.
+4. The first few elements in a column will show what may be contained
+5. We are interested in food and sports.
+6. Food: What is the best food?
+Sports: What is the best sport?
+7. https://www.kaggle.com/datasets/vijayashreer/food-preferences
+https://www.kaggle.com/datasets/borapajo/food-choices
+We used kaggle and looked up food preferences to try and find the best food.
+8. There are 126 responses in the second, and 288 responses in the first.
+9. Data can show what is working, and what specific parts of a website that people like. For instance youtube may notice that shorter videos get more traction so they make a dedicatefd shorts page.
+10. We know that this data was collected through a survey in 2019 from different countries and demographics.
+11. No, privacy is more important, or giving your consent to having data being given is more important. Some people have pastimes that they may be embarrassed by and if there is a data leak they risk being humiliated, when they never consented to having their data recorded in the first place.
+Activity 2
+1. The Object should be called cereal.
+3. public class Cereal{
+4. We should have an instance variable for each row
+5. We need to use strings, floats and ints. The instance variables will have the name of the column.
+8. What is the cereal with the highest rating?
+9.  What are the average amount of calories per serving of cereal?
+10. We would need to make a list of instances of cereal for each row and loop through each of the rows, adding the calories and then dividing at the end.
+Activity 3
+1. Location:Atlanta, temperature 67 F
+2. PADK - Adak Island - 28.0 degrees F
+4. 48 Weather Stations
+5. We could filter by wind speed
+6. KJFK at 40 degrees of latitude
+7. The northmost weather station could be found.
+8. We would just need to modify the main method to return the greatest latitude instead of the smallest one.
+
+
+
+
+Melon's CSV FLOW:
+We followed the instructions used on weather station.
+
+TRUBZ
+Compiling the files was trouble until we understood what the commands did.
