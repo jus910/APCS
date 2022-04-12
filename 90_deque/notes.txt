@@ -1,0 +1,15 @@
+/*
+Watermelon: Justin, Anthony, Jomin
+apcs pd7
+hw89: queue with arraylist and linkedlist
+2022-04-12
+time spent: 0.2 hr + class time
+*/
+
+/*
+DISCO:
+- On the Java API it is stated that doubly linked lists implement the Deque and List interfaces
+  - Given this fact we will not use doubly linked lists to make the Deque class
+QCC:
+- If a deque is a two sided queue, then would it render the one sided queue obsolete?
+*/
