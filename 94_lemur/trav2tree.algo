@@ -1,0 +1,89 @@
+Team Cookie (Justin Mohabir, Lawrence Joa, Lior)
+APCS pd7
+HW94 -- reverse engineering
+2022-05-06f
+time spent: 1 hrs
+
+
+DISCO
+------------------------------------------------
+* Preorder checks each node Root,Left,Right recursively 
+* Inorder checks each node Left, Root, Right recursively 
+* Postorder checks each node Left, Right, Root recursively
+================================================
+
+
+QCC
+------------------------------------------------
+* Can we make a unique tree without in order?
+================================================
+
+
+HOW KEEN ARE YOUR POWERS OF OBSERVATION?
+------------------------------------------------
+Q: For a given binary tree, how many unique pre-order traversals are there?
+A: 1
+
+Q: For a given binary tree, how many unique in-order traversals are there?
+A: 1
+
+Q: For a given binary tree, how many unique post-order traversals are there?
+A: 1
+
+Q: For a given traversal, how many unique trees could have produced it?
+A: Each traversal has the same # of unique trees for given number of nodes;
+1 Node: 1; 2 Nodes: 2; 3 Nodes: 5; 4 Nodes: 14
+There is apparently a term associated with this called a catalan number
+
+Q: Given a pre-order traversal, what can you infer about its tree?
+A: The root node is the first value. The rightmost node is the final value.
+
+Q: Given a post-order traversal, what can you infer about its tree?
+A: The leftmost node is the first value, and root node is the last value
+
+Q: What does "1-to-1" mean?
+A: For every input there is a unique output
+
+Q: What does "onto" mean?
+A: For every output in a set there is a corresponding input in the input set
+
+================================================
+
+
+ALGO for no post order traversal
+------------------------------------------------
+givens:
+-pre order traversal exists
+-in order traversal exists
+
+procedure:
+-The first node of the preorder traversal is the root node
+-Find the root node in the inorder traversal, and we know that everything in the left is on the left subtree and elements to the right on the right subtree
+- Group the left and right into their own subtrees
+- Repeat the first two steps with the two subtrees (element closest to the start of the preorder is the root of the subtree)
+================================================
+
+ALGO for no pre order traversal
+------------------------------------------------
+givens:
+-post order traversal exists
+-in order traversal exists
+
+procedure:
+-The last node of the postorder traversal is the root node
+-Search for element in root node in the inorder traversal, elements to the left are on left subtree,
+	elements to the right are on right subtree
+-Repeat first 2 steps for each subtree (element of each subtree closest to end of postorder is root of that subtree)
+================================================
+
+ALGO for no in order traversal
+------------------------------------------------
+givens:
+-pre order traversal exists
+-post order traversal exists
+
+procedure:
+-No procedure will work for all trees (there will be multiple trees given a preorder and postorder traversal)
+================================================
+
+
