@@ -1,0 +1,22 @@
+Team Cookie (Justin Mohabir, Lawrence Joa, Lior)
+APCS pd7
+HW95 -- Algorithm as Data Structure
+2022-05-09m
+time spent: 1 hrs
+
+
+DISCO
+------------------------------------------------
+* Inorder traversals should in theory print the binary tree in order
+* We must use the setLeft and setRight methods to set new TreeNodes, the = operator does not work
+================================================
+
+
+QCC
+------------------------------------------------
+================================================
+
+
+1. a perfect binary tree has 2^h-1 nodes
+2. at each level, a perfect binary tree has 2^(L-1) nodes
+3. height of a complete binary tree w/ n nodes is log base 2 (n) rounded up
