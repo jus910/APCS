@@ -1,6 +1,6 @@
 Team Cookie (Justin Mohabir, Lawrence Joa, Lior)
 APCS pd7
-HW95 -- BSTs is the Perfect Place for Shade
+HW96 -- BSTs is the Perfect Place for Shade
 2022-05-10
 time spent: 1 hrs
 
