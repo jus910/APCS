@@ -1,0 +1,17 @@
+Team Cookie (Justin Mohabir, Lawrence Joa, Lior)
+APCS pd7
+HW95 -- BSTs is the Perfect Place for Shade
+2022-05-10
+time spent: 1 hrs
+
+
+DISCO
+------------------------------------------------
+* Inorder traversals should in theory print the binary tree in order
+* We must use the setLeft and setRight methods to set new TreeNodes, the = operator does not work
+================================================
+
+
+QCC
+------------------------------------------------
+================================================
