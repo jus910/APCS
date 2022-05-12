@@ -6,10 +6,11 @@ time spent: 1 hrs
 
 DISCO
 ------------------------------------------------
-* 
+* In order to remove a node we must ask its parent
 ================================================
 
 
 QCC
 ------------------------------------------------
+* Is there any way to use the search method to help remove a node?
 ================================================
