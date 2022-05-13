@@ -1,0 +1,11 @@
+Team Cookie (Justin Mohabir, Lawrence Joa, Lior Polischouk)
+APCS pd7
+HW99 - Implementing PriorityQueue
+2022-05-13
+time spent: 0.5 hrs
+
+DISCOS
+- When adding to end of an ArrayList, we need to use the add(int x) method
+
+QCC
+- How would you do this without ints?
