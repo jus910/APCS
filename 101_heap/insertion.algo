@@ -4,6 +4,7 @@ HW101: Heap o'Trouble
 2022-05-16
 time spent: 0.5 hrs
 
-1. Traverse the tree to find a spot for a new node. The best spot would be on the highest possible level. 
-2. Insert a new node containing the insert value. 
-3. If the value is less than its parent, the child overtakes the parent. 
+1. Traverse the tree to find a spot for a new node. 
+2. It should be in a spot where it is greater than its parent but less than its child. 
+3. Set the left child of the insertion node to the branch. 
+4. Set the child of the root to the insertion node. 
