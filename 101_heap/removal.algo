@@ -1,0 +1,9 @@
+Team Cookie (Justin Mohabir, Lawrence Joa, Lior Polischouk)
+APCS pd7
+HW101: Heap o'Trouble
+2022-05-16
+time spent: 0.5 hrs
+
+1. If the removal node is a leaf then set it to null. 
+2. If the removal node has one child then the child overtakes the parent.
+3. If the removal node has two children, the child of lesser value overtakes the parent.
