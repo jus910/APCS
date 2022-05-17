@@ -1,0 +1,5 @@
+Team Cookie (Justin Mohabir, Lawrence Joa, Lior Polischouk)
+APCS pd7
+HW101: Heap o'Trouble
+2022-05-16
+time spent: 0.5 hrs
