@@ -1,8 +1,8 @@
 /**
 Team Cookie (Justin Mohabir, Lawrence Joa, Lior Polischouk)
 APCS pd7
-HW102: Heap On Heapin' On
-2022-05-16
+HW103 -- Erica's Friends, Hugo, and The One in the Middle
+2022-05-18
 time spent: 0.5 hrs
 Disco:
  - The .set method in ArrayList returns the element previously at the specified position
