@@ -55,7 +55,7 @@ public class RunMed{
       bigVals.add(newVal);
     }
 
-    if(Math.abs(lilVals.size()-bigVals.size())>=2){
+    while(Math.abs(lilVals.size()-bigVals.size())>=2){
       if(lilVals.size() > bigVals.size()){
         bigVals.add(lilVals.removeMax());
       } else {
