@@ -1,0 +1,25 @@
+
+Team Cookie (Justin Mohabir, Lawrence Joa, Lior Polischouk)
+APCS pd7
+HW102: Heap On Heapin' On
+2022-05-16
+time spent: 0.5 hrs
+Disco:
+ - The .set method in ArrayList returns the element previously at the specified position
+ - The remove and add methods are O(log n) because we only need to traverse one branch
+ QCC:
+ - How are trees used?
+
+ ALgo:
+
+(the one from class)
+
+a. if next val < root of maxheap, add to maxheap
+   else add to minheap
+
+b. balance heaps (so that size difference < 2)
+   (remove from larger heap, add to smaller heap)
+
+c. at any time find med by:
+    a) heap sizes equal: med is mean of roots
+    b) heap sizes !equal: med is root of larger heap
